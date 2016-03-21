@@ -1,0 +1,664 @@
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+FLASH            0x08000000         0x00100000         xr
+RAM              0x20000000         0x00020000         xrw
+CCM_RAM          0x10000000         0x00010000         xrw
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/system_stm32f4xx.o
+LOAD /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/crt.o
+LOAD /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+LOAD /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/hello_world.o
+LOAD /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_rcc.o
+LOAD /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_gpio.o
+LOAD /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_syscfg.o
+LOAD /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_exti.o
+LOAD /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/misc.o
+                0x00008000                _heap_size = 0x8000
+                0x00001000                _stack_size = 0x1000
+                0x20020000                _stack_start = (ORIGIN (RAM) + 0x20000)
+                0x2001f000                _stack_end = (_stack_start - _stack_size)
+                0x20017000                _heap_start = (_stack_end - _heap_size)
+                0x2001f000                _heap_end = _stack_end
+
+.isr_vector     0x08000000      0x188
+                0x08000000                . = ALIGN (0x4)
+ *(.isr_vector)
+ .isr_vector    0x08000000      0x188 /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+                0x08000000                g_pfnVectors
+                0x08000188                . = ALIGN (0x4)
+
+.text           0x08000188     0x1d1c
+ *(.text)
+ .text          0x08000188      0x37c /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/system_stm32f4xx.o
+                0x08000188                SystemInit
+                0x08000234                SystemCoreClockUpdate
+ .text          0x08000504       0x78 /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/crt.o
+                0x08000504                Reset_Handler
+ .text          0x0800057c        0xc /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+                0x0800057c                RTC_Alarm_IRQHandler
+                0x0800057c                HASH_RNG_IRQHandler
+                0x0800057c                EXTI2_IRQHandler
+                0x0800057c                TIM8_CC_IRQHandler
+                0x0800057c                DebugMon_Handler
+                0x0800057c                TIM1_CC_IRQHandler
+                0x0800057c                DMA2_Stream5_IRQHandler
+                0x0800057c                HardFault_Handler
+                0x0800057c                DMA1_Stream5_IRQHandler
+                0x0800057c                PVD_IRQHandler
+                0x0800057c                SDIO_IRQHandler
+                0x0800057c                TAMP_STAMP_IRQHandler
+                0x0800057c                PendSV_Handler
+                0x0800057c                NMI_Handler
+                0x0800057c                CAN2_RX1_IRQHandler
+                0x0800057c                EXTI3_IRQHandler
+                0x0800057c                TIM8_TRG_COM_TIM14_IRQHandler
+                0x0800057c                TIM1_UP_TIM10_IRQHandler
+                0x0800057c                TIM8_UP_TIM13_IRQHandler
+                0x0800057c                I2C3_ER_IRQHandler
+                0x0800057c                EXTI0_IRQHandler
+                0x0800057c                I2C2_EV_IRQHandler
+                0x0800057c                DMA1_Stream2_IRQHandler
+                0x0800057c                CAN1_RX0_IRQHandler
+                0x0800057c                FPU_IRQHandler
+                0x0800057c                OTG_HS_WKUP_IRQHandler
+                0x0800057c                UsageFault_Handler
+                0x0800057c                CAN2_SCE_IRQHandler
+                0x0800057c                DMA2_Stream2_IRQHandler
+                0x0800057c                SPI1_IRQHandler
+                0x0800057c                TIM6_DAC_IRQHandler
+                0x0800057c                TIM1_BRK_TIM9_IRQHandler
+                0x0800057c                DCMI_IRQHandler
+                0x0800057c                CAN2_RX0_IRQHandler
+                0x0800057c                DMA2_Stream3_IRQHandler
+                0x0800057c                USART6_IRQHandler
+                0x0800057c                USART3_IRQHandler
+                0x0800057c                CRYP_IRQHandler
+                0x0800057c                CAN1_RX1_IRQHandler
+                0x0800057c                UART5_IRQHandler
+                0x0800057c                DMA2_Stream0_IRQHandler
+                0x0800057c                Dummy_Handler
+                0x0800057c                TIM4_IRQHandler
+                0x0800057c                I2C1_EV_IRQHandler
+                0x0800057c                DMA1_Stream6_IRQHandler
+                0x0800057c                DMA1_Stream1_IRQHandler
+                0x0800057c                UART4_IRQHandler
+                0x0800057c                TIM3_IRQHandler
+                0x0800057c                RCC_IRQHandler
+                0x0800057c                TIM8_BRK_TIM12_IRQHandler
+                0x0800057c                EXTI15_10_IRQHandler
+                0x0800057c                ADC_IRQHandler
+                0x0800057c                DMA1_Stream7_IRQHandler
+                0x0800057c                TIM7_IRQHandler
+                0x0800057c                CAN2_TX_IRQHandler
+                0x0800057c                TIM5_IRQHandler
+                0x0800057c                DMA2_Stream7_IRQHandler
+                0x0800057c                I2C3_EV_IRQHandler
+                0x0800057c                EXTI9_5_IRQHandler
+                0x0800057c                RTC_WKUP_IRQHandler
+                0x0800057c                ETH_WKUP_IRQHandler
+                0x0800057c                SPI2_IRQHandler
+                0x0800057c                OTG_HS_EP1_IN_IRQHandler
+                0x0800057c                MemManage_Handler
+                0x0800057c                DMA1_Stream0_IRQHandler
+                0x0800057c                CAN1_TX_IRQHandler
+                0x0800057c                SVC_Handler
+                0x0800057c                EXTI4_IRQHandler
+                0x0800057c                FSMC_IRQHandler
+                0x0800057c                ETH_IRQHandler
+                0x0800057c                OTG_HS_EP1_OUT_IRQHandler
+                0x0800057c                WWDG_IRQHandler
+                0x0800057c                TIM2_IRQHandler
+                0x0800057c                OTG_FS_WKUP_IRQHandler
+                0x0800057c                TIM1_TRG_COM_TIM11_IRQHandler
+                0x0800057c                OTG_HS_IRQHandler
+                0x0800057c                EXTI1_IRQHandler
+                0x0800057c                USART2_IRQHandler
+                0x0800057c                I2C2_ER_IRQHandler
+                0x0800057c                DMA2_Stream1_IRQHandler
+                0x0800057c                CAN1_SCE_IRQHandler
+                0x0800057c                FLASH_IRQHandler
+                0x0800057c                DMA2_Stream4_IRQHandler
+                0x0800057c                BusFault_Handler
+                0x0800057c                USART1_IRQHandler
+                0x0800057c                OTG_FS_IRQHandler
+                0x0800057c                SPI3_IRQHandler
+                0x0800057c                DMA1_Stream4_IRQHandler
+                0x0800057c                I2C1_ER_IRQHandler
+                0x0800057c                DMA2_Stream6_IRQHandler
+                0x0800057c                DMA1_Stream3_IRQHandler
+ .text          0x08000588      0x208 /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/hello_world.o
+                0x08000668                SysTick_Handler
+                0x0800068c                main
+ .text          0x08000790      0xcd0 /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_rcc.o
+                0x08000790                RCC_DeInit
+                0x08000814                RCC_HSEConfig
+                0x08000840                RCC_WaitForHSEStartUp
+                0x08000890                RCC_AdjustHSICalibrationValue
+                0x080008d4                RCC_HSICmd
+                0x080008f4                RCC_LSEConfig
+                0x08000948                RCC_LSICmd
+                0x08000968                RCC_PLLConfig
+                0x080009a8                RCC_PLLCmd
+                0x080009c8                RCC_PLLI2SConfig
+                0x080009f4                RCC_PLLI2SCmd
+                0x08000a14                RCC_ClockSecuritySystemCmd
+                0x08000a34                RCC_MCO1Config
+                0x08000a78                RCC_MCO2Config
+                0x08000abc                RCC_SYSCLKConfig
+                0x08000afc                RCC_GetSYSCLKSource
+                0x08000b1c                RCC_HCLKConfig
+                0x08000b5c                RCC_PCLK1Config
+                0x08000b9c                RCC_PCLK2Config
+                0x08000bdc                RCC_GetClocksFreq
+                0x08000d84                RCC_RTCCLKConfig
+                0x08000df4                RCC_RTCCLKCmd
+                0x08000e14                RCC_BackupResetCmd
+                0x08000e34                RCC_I2SCLKConfig
+                0x08000e54                RCC_AHB1PeriphClockCmd
+                0x08000ea4                RCC_AHB2PeriphClockCmd
+                0x08000ef4                RCC_AHB3PeriphClockCmd
+                0x08000f44                RCC_APB1PeriphClockCmd
+                0x08000f94                RCC_APB2PeriphClockCmd
+                0x08000fe4                RCC_AHB1PeriphResetCmd
+                0x08001034                RCC_AHB2PeriphResetCmd
+                0x08001084                RCC_AHB3PeriphResetCmd
+                0x080010d4                RCC_APB1PeriphResetCmd
+                0x08001124                RCC_APB2PeriphResetCmd
+                0x08001174                RCC_AHB1PeriphClockLPModeCmd
+                0x080011c4                RCC_AHB2PeriphClockLPModeCmd
+                0x08001214                RCC_AHB3PeriphClockLPModeCmd
+                0x08001264                RCC_APB1PeriphClockLPModeCmd
+                0x080012b4                RCC_APB2PeriphClockLPModeCmd
+                0x08001304                RCC_ITConfig
+                0x08001360                RCC_GetFlagStatus
+                0x080013e4                RCC_ClearFlag
+                0x08001408                RCC_GetITStatus
+                0x08001440                RCC_ClearITPendingBit
+ .text          0x08001460      0x498 /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_gpio.o
+                0x08001460                GPIO_DeInit
+                0x08001590                GPIO_Init
+                0x080016ac                GPIO_StructInit
+                0x080016e0                GPIO_PinLockConfig
+                0x08001724                GPIO_ReadInputDataBit
+                0x08001758                GPIO_ReadInputData
+                0x08001774                GPIO_ReadOutputDataBit
+                0x080017a8                GPIO_ReadOutputData
+                0x080017c4                GPIO_SetBits
+                0x080017e0                GPIO_ResetBits
+                0x080017fc                GPIO_WriteBit
+                0x0800182c                GPIO_Write
+                0x08001848                GPIO_ToggleBits
+                0x0800186c                GPIO_PinAFConfig
+ .text          0x080018f8      0x140 /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_syscfg.o
+                0x080018f8                SYSCFG_DeInit
+                0x08001914                SYSCFG_MemoryRemapConfig
+                0x08001934                SYSCFG_EXTILineConfig
+                0x080019c8                SYSCFG_ETH_MediaInterfaceConfig
+                0x080019e4                SYSCFG_CompensationCellCmd
+                0x08001a04                SYSCFG_GetCompensationCellStatus
+ .text          0x08001a38      0x29c /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_exti.o
+                0x08001a38                EXTI_DeInit
+                0x08001a88                EXTI_Init
+                0x08001bb4                EXTI_StructInit
+                0x08001be0                EXTI_GenerateSWInterrupt
+                0x08001c0c                EXTI_GetFlagStatus
+                0x08001c44                EXTI_ClearFlag
+                0x08001c64                EXTI_GetITStatus
+                0x08001cb4                EXTI_ClearITPendingBit
+ .text          0x08001cd4      0x1c0 /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/misc.o
+                0x08001cd4                NVIC_PriorityGroupConfig
+                0x08001cfc                NVIC_Init
+                0x08001dc8                NVIC_SetVectorTable
+                0x08001df4                NVIC_SystemLPConfig
+                0x08001e48                SysTick_CLKSourceConfig
+ *(.text.*)
+ *(.rodata)
+ *(.rodata.*)
+ *(.strings)
+ *(.glue_7)
+ .glue_7        0x00000000        0x0 linker stubs
+ *(.glue_7t)
+ .glue_7t       0x00000000        0x0 linker stubs
+ *(.eh_frame_hdr)
+ *(.eh_frame)
+                0x08001e94                __CTOR_LIST__ = .
+                0x08001e94        0x4 LONG 0x0 (((__CTOR_END__ - __CTOR_LIST__) / 0x4) - 0x2)
+ *(SORT(.ctors))
+                0x08001e98        0x4 LONG 0x0
+                0x08001e9c                __CTOR_END__ = .
+                0x08001e9c                __DTOR_LIST__ = .
+                0x08001e9c        0x4 LONG 0x0 (((__DTOR_END__ - __DTOR_LIST__) / 0x4) - 0x2)
+ *(SORT(.dtors))
+                0x08001ea0        0x4 LONG 0x0
+                0x08001ea4                __DTOR_END__ = .
+ *(.init)
+ *(.fini)
+                0x08001ea4                . = ALIGN (0x4)
+                0x08001ea4                _etext = .
+
+.vfp11_veneer   0x08001ea4        0x0
+ .vfp11_veneer  0x00000000        0x0 linker stubs
+
+.v4_bx          0x08001ea4        0x0
+ .v4_bx         0x00000000        0x0 linker stubs
+
+.iplt           0x08001ea4        0x0
+ .iplt          0x00000000        0x0 /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/system_stm32f4xx.o
+
+.rel.dyn        0x08001ea4        0x0
+ .rel.iplt      0x00000000        0x0 /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/system_stm32f4xx.o
+
+.ARM.extab
+ *(.ARM.extab* .gnu.linkonce.armextab.*)
+
+.ARM            0x08001ea4        0x0
+                0x08001ea4                __exidx_start = .
+ *(.ARM.exidx*)
+                0x08001ea4                __exidx_end = .
+
+.preinit_array  0x08001ea4        0x0
+                0x08001ea4                PROVIDE (__preinit_array_start, .)
+ *(.preinit_array*)
+                0x08001ea4                PROVIDE (__preinit_array_end, .)
+
+.init_array     0x08001ea4        0x0
+                0x08001ea4                PROVIDE (__init_array_start, .)
+ *(SORT(.init_array.*))
+ *(.init_array*)
+                0x08001ea4                PROVIDE (__init_array_end, .)
+
+.fini_array     0x08001ea4        0x0
+                0x08001ea4                PROVIDE (__fini_array_start, .)
+ *(.fini_array*)
+ *(SORT(.fini_array.*))
+                0x08001ea4                PROVIDE (__fini_array_end, .)
+                0x08001ea4                _sidata = .
+
+.data           0x20000000       0x24 load address 0x08001ea4
+                0x20000000                . = ALIGN (0x4)
+                0x20000000                _sdata = .
+ *(.data)
+ .data          0x20000000       0x14 /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/system_stm32f4xx.o
+                0x20000000                SystemCoreClock
+                0x20000004                AHBPrescTable
+ .data          0x20000014        0x0 /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/crt.o
+ .data          0x20000014        0x0 /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+ .data          0x20000014        0x0 /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/hello_world.o
+ .data          0x20000014       0x10 /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_rcc.o
+ .data          0x20000024        0x0 /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_gpio.o
+ .data          0x20000024        0x0 /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_syscfg.o
+ .data          0x20000024        0x0 /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_exti.o
+ .data          0x20000024        0x0 /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/misc.o
+ *(.data.*)
+                0x20000024                . = ALIGN (0x4)
+                0x20000024                _edata = .
+
+.igot.plt       0x20000024        0x0 load address 0x08001ec8
+ .igot.plt      0x00000000        0x0 /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/system_stm32f4xx.o
+
+.bss            0x20000024        0xc load address 0x08001ec8
+                0x20000024                . = ALIGN (0x4)
+                0x20000024                _sbss = .
+ *(.bss)
+ .bss           0x20000024        0x0 /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/system_stm32f4xx.o
+ .bss           0x20000024        0x0 /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/crt.o
+ .bss           0x20000024        0x0 /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+ .bss           0x20000024        0xc /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/hello_world.o
+ .bss           0x20000030        0x0 /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_rcc.o
+ .bss           0x20000030        0x0 /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_gpio.o
+ .bss           0x20000030        0x0 /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_syscfg.o
+ .bss           0x20000030        0x0 /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_exti.o
+ .bss           0x20000030        0x0 /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/misc.o
+ *(.bss.*)
+ *(COMMON)
+                0x20000030                . = ALIGN (0x4)
+                0x20000030                _ebss = .
+                0x20017000                . = _heap_start
+
+.heap           0x20017000     0x8000 load address 0x08018ea4
+                0x20017000                . = ALIGN (0x4)
+                0x20017000                PROVIDE (end, .)
+                0x20017000                PROVIDE (_end, .)
+                0x2001f000                . = (. + _heap_size)
+ *fill*         0x20017000     0x8000 
+                0x2001f000                . = ALIGN (0x4)
+                0x2001f000                . = _stack_end
+
+.stack          0x2001f000     0x1000 load address 0x08020ea4
+                0x2001f000                . = ALIGN (0x4)
+                0x20020000                . = (. + _stack_size)
+ *fill*         0x2001f000     0x1000 
+                0x20020000                . = ALIGN (0x4)
+
+/DISCARD/
+ libc.a(*)
+ libm.a(*)
+ libgcc.a(*)
+
+.ARM.attributes
+                0x00000000       0x39
+ *(.ARM.attributes)
+ .ARM.attributes
+                0x00000000       0x39 /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/system_stm32f4xx.o
+ .ARM.attributes
+                0x00000039       0x39 /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/crt.o
+ .ARM.attributes
+                0x00000072       0x39 /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+ .ARM.attributes
+                0x000000ab       0x39 /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/hello_world.o
+ .ARM.attributes
+                0x000000e4       0x39 /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_rcc.o
+ .ARM.attributes
+                0x0000011d       0x39 /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_gpio.o
+ .ARM.attributes
+                0x00000156       0x39 /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_syscfg.o
+ .ARM.attributes
+                0x0000018f       0x39 /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_exti.o
+ .ARM.attributes
+                0x000001c8       0x39 /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/misc.o
+LOAD /opt/toolchains/eabi/arm-2014.05/bin/../lib/gcc/arm-none-eabi/4.8.3/thumb2/libgcc.a
+LOAD /opt/toolchains/eabi/arm-2014.05/bin/../lib/gcc/arm-none-eabi/4.8.3/../../../../arm-none-eabi/lib/thumb2/libc.a
+START GROUP
+LOAD /opt/toolchains/eabi/arm-2014.05/bin/../lib/gcc/arm-none-eabi/4.8.3/thumb2/libgcc.a
+LOAD /opt/toolchains/eabi/arm-2014.05/bin/../lib/gcc/arm-none-eabi/4.8.3/../../../../arm-none-eabi/lib/thumb2/libc.a
+END GROUP
+OUTPUT(/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/hello-world.elf elf32-littlearm)
+
+.debug_info     0x00000000     0x2c48
+ .debug_info    0x00000000      0x566 /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/system_stm32f4xx.o
+ .debug_info    0x00000566       0xfe /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/crt.o
+ .debug_info    0x00000664       0xb8 /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+ .debug_info    0x0000071c      0x89d /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/hello_world.o
+ .debug_info    0x00000fb9      0xc21 /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_rcc.o
+ .debug_info    0x00001bda      0x5d6 /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_gpio.o
+ .debug_info    0x000021b0      0x24b /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_syscfg.o
+ .debug_info    0x000023fb      0x331 /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_exti.o
+ .debug_info    0x0000272c      0x51c /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/misc.o
+
+.debug_abbrev   0x00000000      0xbb4
+ .debug_abbrev  0x00000000      0x136 /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/system_stm32f4xx.o
+ .debug_abbrev  0x00000136       0x78 /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/crt.o
+ .debug_abbrev  0x000001ae       0x8b /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+ .debug_abbrev  0x00000239      0x1da /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/hello_world.o
+ .debug_abbrev  0x00000413      0x1e3 /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_rcc.o
+ .debug_abbrev  0x000005f6      0x1a3 /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_gpio.o
+ .debug_abbrev  0x00000799      0x131 /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_syscfg.o
+ .debug_abbrev  0x000008ca      0x1a5 /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_exti.o
+ .debug_abbrev  0x00000a6f      0x145 /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/misc.o
+
+.debug_aranges  0x00000000      0x120
+ .debug_aranges
+                0x00000000       0x20 /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/system_stm32f4xx.o
+ .debug_aranges
+                0x00000020       0x20 /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/crt.o
+ .debug_aranges
+                0x00000040       0x20 /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+ .debug_aranges
+                0x00000060       0x20 /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/hello_world.o
+ .debug_aranges
+                0x00000080       0x20 /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_rcc.o
+ .debug_aranges
+                0x000000a0       0x20 /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_gpio.o
+ .debug_aranges
+                0x000000c0       0x20 /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_syscfg.o
+ .debug_aranges
+                0x000000e0       0x20 /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_exti.o
+ .debug_aranges
+                0x00000100       0x20 /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/misc.o
+
+.debug_line     0x00000000     0x1098
+ .debug_line    0x00000000      0x196 /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/system_stm32f4xx.o
+ .debug_line    0x00000196      0x13e /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/crt.o
+ .debug_line    0x000002d4       0xee /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+ .debug_line    0x000003c2      0x230 /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/hello_world.o
+ .debug_line    0x000005f2      0x314 /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_rcc.o
+ .debug_line    0x00000906      0x237 /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_gpio.o
+ .debug_line    0x00000b3d      0x1b4 /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_syscfg.o
+ .debug_line    0x00000cf1      0x1f0 /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_exti.o
+ .debug_line    0x00000ee1      0x1b7 /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/misc.o
+
+.debug_str      0x00000000     0x185f
+ .debug_str     0x00000000      0x331 /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/system_stm32f4xx.o
+                                0x38b (size before relaxing)
+ .debug_str     0x00000331       0x8e /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/crt.o
+                                0x1a0 (size before relaxing)
+ .debug_str     0x000003bf       0x83 /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+                                0x180 (size before relaxing)
+ .debug_str     0x00000442      0x7aa /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/hello_world.o
+                                0x98a (size before relaxing)
+ .debug_str     0x00000bec      0x5ad /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_rcc.o
+                                0x834 (size before relaxing)
+ .debug_str     0x00001199      0x1b7 /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_gpio.o
+                                0x487 (size before relaxing)
+ .debug_str     0x00001350      0x17d /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_syscfg.o
+                                0x2e3 (size before relaxing)
+ .debug_str     0x000014cd      0x1f4 /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_exti.o
+                                0x352 (size before relaxing)
+ .debug_str     0x000016c1      0x19e /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/misc.o
+                                0x3bd (size before relaxing)
+
+.comment        0x00000000       0x46
+ .comment       0x00000000       0x46 /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/system_stm32f4xx.o
+                                 0x47 (size before relaxing)
+ .comment       0x00000000       0x47 /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/crt.o
+ .comment       0x00000000       0x47 /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+ .comment       0x00000000       0x47 /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/hello_world.o
+ .comment       0x00000000       0x47 /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_rcc.o
+ .comment       0x00000000       0x47 /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_gpio.o
+ .comment       0x00000000       0x47 /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_syscfg.o
+ .comment       0x00000000       0x47 /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_exti.o
+ .comment       0x00000000       0x47 /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/misc.o
+
+.debug_frame    0x00000000      0xa30
+ .debug_frame   0x00000000       0x64 /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/system_stm32f4xx.o
+ .debug_frame   0x00000064       0x38 /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/crt.o
+ .debug_frame   0x0000009c       0x2c /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+ .debug_frame   0x000000c8       0xa0 /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/hello_world.o
+ .debug_frame   0x00000168      0x4e4 /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_rcc.o
+ .debug_frame   0x0000064c      0x19c /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_gpio.o
+ .debug_frame   0x000007e8       0xbc /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_syscfg.o
+ .debug_frame   0x000008a4       0xf0 /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_exti.o
+ .debug_frame   0x00000994       0x9c /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/misc.o
+
+Cross Reference Table
+
+Symbol                                            File
+ADC_IRQHandler                                    /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+AHBPrescTable                                     /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/system_stm32f4xx.o
+BusFault_Handler                                  /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+CAN1_RX0_IRQHandler                               /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+CAN1_RX1_IRQHandler                               /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+CAN1_SCE_IRQHandler                               /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+CAN1_TX_IRQHandler                                /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+CAN2_RX0_IRQHandler                               /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+CAN2_RX1_IRQHandler                               /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+CAN2_SCE_IRQHandler                               /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+CAN2_TX_IRQHandler                                /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+CRYP_IRQHandler                                   /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+DCMI_IRQHandler                                   /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+DMA1_Stream0_IRQHandler                           /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+DMA1_Stream1_IRQHandler                           /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+DMA1_Stream2_IRQHandler                           /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+DMA1_Stream3_IRQHandler                           /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+DMA1_Stream4_IRQHandler                           /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+DMA1_Stream5_IRQHandler                           /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+DMA1_Stream6_IRQHandler                           /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+DMA1_Stream7_IRQHandler                           /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+DMA2_Stream0_IRQHandler                           /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+DMA2_Stream1_IRQHandler                           /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+DMA2_Stream2_IRQHandler                           /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+DMA2_Stream3_IRQHandler                           /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+DMA2_Stream4_IRQHandler                           /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+DMA2_Stream5_IRQHandler                           /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+DMA2_Stream6_IRQHandler                           /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+DMA2_Stream7_IRQHandler                           /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+DebugMon_Handler                                  /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+Dummy_Handler                                     /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+ETH_IRQHandler                                    /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+ETH_WKUP_IRQHandler                               /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+EXTI0_IRQHandler                                  /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+EXTI15_10_IRQHandler                              /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+EXTI1_IRQHandler                                  /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+EXTI2_IRQHandler                                  /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+EXTI3_IRQHandler                                  /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+EXTI4_IRQHandler                                  /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+EXTI9_5_IRQHandler                                /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+EXTI_ClearFlag                                    /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_exti.o
+EXTI_ClearITPendingBit                            /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_exti.o
+EXTI_DeInit                                       /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_exti.o
+EXTI_GenerateSWInterrupt                          /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_exti.o
+EXTI_GetFlagStatus                                /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_exti.o
+EXTI_GetITStatus                                  /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_exti.o
+EXTI_Init                                         /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_exti.o
+EXTI_StructInit                                   /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_exti.o
+FLASH_IRQHandler                                  /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+FPU_IRQHandler                                    /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+FSMC_IRQHandler                                   /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+GPIO_DeInit                                       /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_gpio.o
+GPIO_Init                                         /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_gpio.o
+                                                  /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/hello_world.o
+GPIO_PinAFConfig                                  /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_gpio.o
+GPIO_PinLockConfig                                /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_gpio.o
+GPIO_ReadInputData                                /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_gpio.o
+GPIO_ReadInputDataBit                             /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_gpio.o
+GPIO_ReadOutputData                               /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_gpio.o
+GPIO_ReadOutputDataBit                            /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_gpio.o
+GPIO_ResetBits                                    /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_gpio.o
+                                                  /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/hello_world.o
+GPIO_SetBits                                      /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_gpio.o
+                                                  /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/hello_world.o
+GPIO_StructInit                                   /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_gpio.o
+GPIO_ToggleBits                                   /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_gpio.o
+GPIO_Write                                        /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_gpio.o
+GPIO_WriteBit                                     /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_gpio.o
+HASH_RNG_IRQHandler                               /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+HardFault_Handler                                 /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+I2C1_ER_IRQHandler                                /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+I2C1_EV_IRQHandler                                /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+I2C2_ER_IRQHandler                                /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+I2C2_EV_IRQHandler                                /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+I2C3_ER_IRQHandler                                /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+I2C3_EV_IRQHandler                                /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+MemManage_Handler                                 /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+NMI_Handler                                       /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+NVIC_Init                                         /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/misc.o
+NVIC_PriorityGroupConfig                          /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/misc.o
+NVIC_SetVectorTable                               /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/misc.o
+NVIC_SystemLPConfig                               /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/misc.o
+OTG_FS_IRQHandler                                 /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+OTG_FS_WKUP_IRQHandler                            /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+OTG_HS_EP1_IN_IRQHandler                          /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+OTG_HS_EP1_OUT_IRQHandler                         /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+OTG_HS_IRQHandler                                 /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+OTG_HS_WKUP_IRQHandler                            /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+PVD_IRQHandler                                    /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+PendSV_Handler                                    /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+RCC_AHB1PeriphClockCmd                            /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_rcc.o
+                                                  /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/hello_world.o
+RCC_AHB1PeriphClockLPModeCmd                      /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_rcc.o
+RCC_AHB1PeriphResetCmd                            /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_rcc.o
+                                                  /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_gpio.o
+RCC_AHB2PeriphClockCmd                            /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_rcc.o
+RCC_AHB2PeriphClockLPModeCmd                      /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_rcc.o
+RCC_AHB2PeriphResetCmd                            /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_rcc.o
+RCC_AHB3PeriphClockCmd                            /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_rcc.o
+RCC_AHB3PeriphClockLPModeCmd                      /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_rcc.o
+RCC_AHB3PeriphResetCmd                            /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_rcc.o
+RCC_APB1PeriphClockCmd                            /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_rcc.o
+RCC_APB1PeriphClockLPModeCmd                      /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_rcc.o
+RCC_APB1PeriphResetCmd                            /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_rcc.o
+RCC_APB2PeriphClockCmd                            /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_rcc.o
+RCC_APB2PeriphClockLPModeCmd                      /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_rcc.o
+RCC_APB2PeriphResetCmd                            /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_rcc.o
+                                                  /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_syscfg.o
+RCC_AdjustHSICalibrationValue                     /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_rcc.o
+RCC_BackupResetCmd                                /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_rcc.o
+RCC_ClearFlag                                     /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_rcc.o
+RCC_ClearITPendingBit                             /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_rcc.o
+RCC_ClockSecuritySystemCmd                        /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_rcc.o
+RCC_DeInit                                        /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_rcc.o
+RCC_GetClocksFreq                                 /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_rcc.o
+RCC_GetFlagStatus                                 /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_rcc.o
+RCC_GetITStatus                                   /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_rcc.o
+RCC_GetSYSCLKSource                               /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_rcc.o
+RCC_HCLKConfig                                    /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_rcc.o
+RCC_HSEConfig                                     /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_rcc.o
+RCC_HSICmd                                        /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_rcc.o
+RCC_I2SCLKConfig                                  /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_rcc.o
+RCC_IRQHandler                                    /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+RCC_ITConfig                                      /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_rcc.o
+RCC_LSEConfig                                     /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_rcc.o
+RCC_LSICmd                                        /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_rcc.o
+RCC_MCO1Config                                    /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_rcc.o
+RCC_MCO2Config                                    /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_rcc.o
+RCC_PCLK1Config                                   /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_rcc.o
+RCC_PCLK2Config                                   /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_rcc.o
+RCC_PLLCmd                                        /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_rcc.o
+RCC_PLLConfig                                     /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_rcc.o
+RCC_PLLI2SCmd                                     /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_rcc.o
+RCC_PLLI2SConfig                                  /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_rcc.o
+RCC_RTCCLKCmd                                     /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_rcc.o
+RCC_RTCCLKConfig                                  /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_rcc.o
+RCC_SYSCLKConfig                                  /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_rcc.o
+RCC_WaitForHSEStartUp                             /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_rcc.o
+RTC_Alarm_IRQHandler                              /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+RTC_WKUP_IRQHandler                               /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+Reset_Handler                                     /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/crt.o
+                                                  /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+SDIO_IRQHandler                                   /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+SPI1_IRQHandler                                   /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+SPI2_IRQHandler                                   /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+SPI3_IRQHandler                                   /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+SVC_Handler                                       /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+SYSCFG_CompensationCellCmd                        /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_syscfg.o
+SYSCFG_DeInit                                     /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_syscfg.o
+SYSCFG_ETH_MediaInterfaceConfig                   /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_syscfg.o
+SYSCFG_EXTILineConfig                             /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_syscfg.o
+SYSCFG_GetCompensationCellStatus                  /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_syscfg.o
+SYSCFG_MemoryRemapConfig                          /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_syscfg.o
+SysTick_CLKSourceConfig                           /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/misc.o
+SysTick_Handler                                   /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/hello_world.o
+                                                  /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+SystemCoreClock                                   /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/system_stm32f4xx.o
+                                                  /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/hello_world.o
+SystemCoreClockUpdate                             /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/system_stm32f4xx.o
+                                                  /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/hello_world.o
+SystemInit                                        /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/system_stm32f4xx.o
+                                                  /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/crt.o
+TAMP_STAMP_IRQHandler                             /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+TIM1_BRK_TIM9_IRQHandler                          /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+TIM1_CC_IRQHandler                                /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+TIM1_TRG_COM_TIM11_IRQHandler                     /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+TIM1_UP_TIM10_IRQHandler                          /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+TIM2_IRQHandler                                   /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+TIM3_IRQHandler                                   /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+TIM4_IRQHandler                                   /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+TIM5_IRQHandler                                   /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+TIM6_DAC_IRQHandler                               /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+TIM7_IRQHandler                                   /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+TIM8_BRK_TIM12_IRQHandler                         /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+TIM8_CC_IRQHandler                                /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+TIM8_TRG_COM_TIM14_IRQHandler                     /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+TIM8_UP_TIM13_IRQHandler                          /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+UART4_IRQHandler                                  /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+UART5_IRQHandler                                  /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+USART1_IRQHandler                                 /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+USART2_IRQHandler                                 /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+USART3_IRQHandler                                 /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+USART6_IRQHandler                                 /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+UsageFault_Handler                                /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+WWDG_IRQHandler                                   /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+_ebss                                             /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/crt.o
+_edata                                            /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/crt.o
+_sbss                                             /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/crt.o
+_sdata                                            /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/crt.o
+_sidata                                           /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/crt.o
+_stack_start                                      /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+g_pfnVectors                                      /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4_vector.o
+main                                              /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/hello_world.o
+                                                  /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/crt.o

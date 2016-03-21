@@ -1,0 +1,836 @@
+   1              		.syntax unified
+   2              		.cpu cortex-m4
+   3              		.eabi_attribute 27, 3	@ Tag_ABI_HardFP_use
+   4              		.eabi_attribute 28, 1	@ Tag_ABI_VFP_args
+   5              		.fpu vfp
+   6              		.eabi_attribute 20, 1	@ Tag_ABI_FP_denormal
+   7              		.eabi_attribute 21, 1	@ Tag_ABI_FP_exceptions
+   8              		.eabi_attribute 23, 3	@ Tag_ABI_FP_number_model
+   9              		.eabi_attribute 24, 1	@ Tag_ABI_align8_needed
+  10              		.eabi_attribute 25, 1	@ Tag_ABI_align8_preserved
+  11              		.eabi_attribute 26, 1	@ Tag_ABI_enum_size
+  12              		.eabi_attribute 30, 6	@ Tag_ABI_optimization_goals
+  13              		.eabi_attribute 34, 1	@ Tag_CPU_unaligned_access
+  14              		.eabi_attribute 18, 4	@ Tag_ABI_PCS_wchar_t
+  15              		.file	"stm32f4xx_exti.c"
+  16              	@ GNU C (Sourcery CodeBench Lite 2014.05-28) version 4.8.3 20140320 (prerelease) (arm-none-eabi)
+  17              	@	compiled by GNU C version 4.7.2, GMP version 5.0.5, MPFR version 3.1.1-p2, MPC version 1.0.1
+  18              	@ GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+  19              	@ options passed: 
+  20              	@ -I /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world
+  21              	@ -I /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src
+  22              	@ -I /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/project
+  23              	@ -I /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/core
+  24              	@ -I /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device
+  25              	@ -imultilib thumb2
+  26              	@ -iprefix /opt/toolchains/eabi/arm-2014.05/bin/../lib/gcc/arm-none-eabi/4.8.3/
+  27              	@ -isysroot /opt/toolchains/eabi/arm-2014.05/bin/../arm-none-eabi
+  28              	@ -MMD /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_exti.d
+  29              	@ -MF /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/.dep/stm32f4xx_ex
+  30              	@ -MP
+  31              	@ -MQ /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f4xx_exti.o
+  32              	@ -D__USES_INITFINI__ -D USE_STDPERIPH_DRIVER -D STM32F4XX
+  33              	@ -D __CS_SOURCERYGXX_MAJ__=2014 -D __CS_SOURCERYGXX_MIN__=5
+  34              	@ -D __CS_SOURCERYGXX_REV__=28
+  35              	@ /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti
+  36              	@ -mcpu=cortex-m4 -mtune=cortex-m4 -mfloat-abi=hard -mthumb -mapcs-frame
+  37              	@ -auxbase-strip /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/stm32f
+  38              	@ -g -O0 -Wall -Wstrict-prototypes -fverbose-asm
+  39              	@ options enabled:  -faggressive-loop-optimizations -fauto-inc-dec
+  40              	@ -fbranch-count-reg -fcommon -fdelete-null-pointer-checks -fdwarf2-cfi-asm
+  41              	@ -fearly-inlining -feliminate-unused-debug-types -ffunction-cse -fgcse-lm
+  42              	@ -fgnu-runtime -fident -finline-atomics -fira-hoist-pressure
+  43              	@ -fira-share-save-slots -fira-share-spill-slots -fivopts
+  44              	@ -fkeep-static-consts -fleading-underscore -fmath-errno
+  45              	@ -fmerge-debug-strings -fmove-loop-invariants -fpeephole
+  46              	@ -fprefetch-loop-arrays -freg-struct-return
+  47              	@ -fsched-critical-path-heuristic -fsched-dep-count-heuristic
+  48              	@ -fsched-group-heuristic -fsched-interblock -fsched-last-insn-heuristic
+  49              	@ -fsched-rank-heuristic -fsched-spec -fsched-spec-insn-heuristic
+  50              	@ -fsched-stalled-insns-dep -fshow-column -fsigned-zeros
+  51              	@ -fsplit-ivs-in-unroller -fstrict-volatile-bitfields -fsync-libcalls
+  52              	@ -ftrapping-math -ftree-coalesce-vars -ftree-cselim -ftree-forwprop
+  53              	@ -ftree-loop-if-convert -ftree-loop-im -ftree-loop-ivcanon
+  54              	@ -ftree-loop-optimize -ftree-parallelize-loops= -ftree-phiprop -ftree-pta
+  55              	@ -ftree-reassoc -ftree-scev-cprop -ftree-slp-vectorize
+  56              	@ -ftree-vect-loop-version -funit-at-a-time -fverbose-asm
+  57              	@ -fzero-initialized-in-bss -mlittle-endian -msched-prolog -mthumb
+  58              	@ -munaligned-access -mvectorize-with-neon-quad
+  59              	
+  60              		.text
+  61              	.Ltext0:
+  62              		.cfi_sections	.debug_frame
+  63              		.align	2
+  64              		.global	EXTI_DeInit
+  65              		.thumb
+  66              		.thumb_func
+  68              	EXTI_DeInit:
+  69              	.LFB110:
+  70              		.file 1 "/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f
+   1:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c **** /**
+   2:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   ******************************************************************************
+   3:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   * @file    stm32f4xx_exti.c
+   4:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   * @author  MCD Application Team
+   5:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   * @version V1.0.0
+   6:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   * @date    30-September-2011
+   7:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   * @brief   This file provides firmware functions to manage the following 
+   8:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   *          functionalities of the EXTI peripheral:           
+   9:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   *           - Initialization and Configuration
+  10:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   *           - Interrupts and flags management
+  11:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   *
+  12:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   *  @verbatim  
+  13:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   *  
+  14:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   *          ===================================================================
+  15:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   *                                     EXTI features
+  16:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   *          ===================================================================
+  17:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   *    
+  18:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   *          External interrupt/event lines are mapped as following:
+  19:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   *            1- All available GPIO pins are connected to the 16 external 
+  20:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   *               interrupt/event lines from EXTI0 to EXTI15.
+  21:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   *            2- EXTI line 16 is connected to the PVD Output
+  22:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   *            3- EXTI line 17 is connected to the RTC Alarm event
+  23:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   *            4- EXTI line 18 is connected to the USB OTG FS Wakeup from suspend event            
+  24:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   *            5- EXTI line 19 is connected to the Ethernet Wakeup event
+  25:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   *            6- EXTI line 20 is connected to the USB OTG HS (configured in FS) Wakeup event 
+  26:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   *            7- EXTI line 21 is connected to the RTC Tamper and Time Stamp events                
+  27:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   *            8- EXTI line 22 is connected to the RTC Wakeup event
+  28:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   *        
+  29:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   *          ===================================================================
+  30:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   *                                 How to use this driver
+  31:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   *          ===================================================================  
+  32:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   *              
+  33:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   *          In order to use an I/O pin as an external interrupt source, follow
+  34:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   *          steps below:
+  35:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   *            1- Configure the I/O in input mode using GPIO_Init()
+  36:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   *            2- Select the input source pin for the EXTI line using SYSCFG_EXTILineConfig()
+  37:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   *            3- Select the mode(interrupt, event) and configure the trigger 
+  38:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   *               selection (Rising, falling or both) using EXTI_Init()
+  39:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   *            4- Configure NVIC IRQ channel mapped to the EXTI line using NVIC_Init()
+  40:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   *   
+  41:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   *  @note  SYSCFG APB clock must be enabled to get write access to SYSCFG_EXTICRx
+  42:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   *         registers using RCC_APB2PeriphClockCmd(RCC_APB2Periph_SYSCFG, ENABLE);
+  43:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   *          
+  44:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   *  @endverbatim                  
+  45:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   *
+  46:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   ******************************************************************************
+  47:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   * @attention
+  48:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   *
+  49:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   * THE PRESENT FIRMWARE WHICH IS FOR GUIDANCE ONLY AIMS AT PROVIDING CUSTOMERS
+  50:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   * WITH CODING INFORMATION REGARDING THEIR PRODUCTS IN ORDER FOR THEM TO SAVE
+  51:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   * TIME. AS A RESULT, STMICROELECTRONICS SHALL NOT BE HELD LIABLE FOR ANY
+  52:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   * DIRECT, INDIRECT OR CONSEQUENTIAL DAMAGES WITH RESPECT TO ANY CLAIMS ARISING
+  53:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   * FROM THE CONTENT OF SUCH FIRMWARE AND/OR THE USE MADE BY CUSTOMERS OF THE
+  54:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   * CODING INFORMATION CONTAINED HEREIN IN CONNECTION WITH THEIR PRODUCTS.
+  55:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   *
+  56:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   * <h2><center>&copy; COPYRIGHT 2011 STMicroelectronics</center></h2>
+  57:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   ******************************************************************************
+  58:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   */
+  59:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c **** 
+  60:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c **** /* Includes ------------------------------------------------------------------*/
+  61:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c **** #include "stm32f4xx_exti.h"
+  62:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c **** 
+  63:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c **** /** @addtogroup STM32F4xx_StdPeriph_Driver
+  64:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   * @{
+  65:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   */
+  66:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c **** 
+  67:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c **** /** @defgroup EXTI 
+  68:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   * @brief EXTI driver modules
+  69:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   * @{
+  70:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   */
+  71:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c **** 
+  72:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c **** /* Private typedef -----------------------------------------------------------*/
+  73:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c **** /* Private define ------------------------------------------------------------*/
+  74:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c **** 
+  75:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c **** #define EXTI_LINENONE    ((uint32_t)0x00000)  /* No interrupt selected */
+  76:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c **** 
+  77:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c **** /* Private macro -------------------------------------------------------------*/
+  78:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c **** /* Private variables ---------------------------------------------------------*/
+  79:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c **** /* Private function prototypes -----------------------------------------------*/
+  80:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c **** /* Private functions ---------------------------------------------------------*/
+  81:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c **** 
+  82:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c **** /** @defgroup EXTI_Private_Functions
+  83:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   * @{
+  84:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   */
+  85:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c **** 
+  86:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c **** /** @defgroup EXTI_Group1 Initialization and Configuration functions
+  87:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****  *  @brief   Initialization and Configuration functions 
+  88:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****  *
+  89:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c **** @verbatim   
+  90:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****  ===============================================================================
+  91:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****                   Initialization and Configuration functions
+  92:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****  ===============================================================================  
+  93:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c **** 
+  94:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c **** @endverbatim
+  95:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   * @{
+  96:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   */
+  97:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c **** 
+  98:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c **** /**
+  99:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   * @brief  Deinitializes the EXTI peripheral registers to their default reset values.
+ 100:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   * @param  None
+ 101:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   * @retval None
+ 102:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   */
+ 103:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c **** void EXTI_DeInit(void)
+ 104:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c **** {
+  71              		.loc 1 104 0
+  72              		.cfi_startproc
+  73              		@ args = 0, pretend = 0, frame = 0
+  74              		@ frame_needed = 1, uses_anonymous_args = 0
+  75              		@ link register save eliminated.
+  76 0000 80B4     		push	{r7}	@
+  77              		.cfi_def_cfa_offset 4
+  78              		.cfi_offset 7, -4
+  79 0002 00AF     		add	r7, sp, #0	@,,
+  80              		.cfi_def_cfa_register 7
+ 105:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   EXTI->IMR = 0x00000000;
+  81              		.loc 1 105 0
+  82 0004 4FF47053 		mov	r3, #15360	@ D.7427,
+  83 0008 C4F20103 		movt	r3, 16385	@ D.7427,
+  84 000c 0022     		movs	r2, #0	@ tmp115,
+  85 000e 1A60     		str	r2, [r3]	@ tmp115, _1->IMR
+ 106:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   EXTI->EMR = 0x00000000;
+  86              		.loc 1 106 0
+  87 0010 4FF47053 		mov	r3, #15360	@ D.7427,
+  88 0014 C4F20103 		movt	r3, 16385	@ D.7427,
+  89 0018 0022     		movs	r2, #0	@ tmp116,
+  90 001a 5A60     		str	r2, [r3, #4]	@ tmp116, _2->EMR
+ 107:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   EXTI->RTSR = 0x00000000;
+  91              		.loc 1 107 0
+  92 001c 4FF47053 		mov	r3, #15360	@ D.7427,
+  93 0020 C4F20103 		movt	r3, 16385	@ D.7427,
+  94 0024 0022     		movs	r2, #0	@ tmp117,
+  95 0026 9A60     		str	r2, [r3, #8]	@ tmp117, _3->RTSR
+ 108:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   EXTI->FTSR = 0x00000000;
+  96              		.loc 1 108 0
+  97 0028 4FF47053 		mov	r3, #15360	@ D.7427,
+  98 002c C4F20103 		movt	r3, 16385	@ D.7427,
+  99 0030 0022     		movs	r2, #0	@ tmp118,
+ 100 0032 DA60     		str	r2, [r3, #12]	@ tmp118, _4->FTSR
+ 109:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   EXTI->PR = 0x007FFFFF;
+ 101              		.loc 1 109 0
+ 102 0034 4FF47053 		mov	r3, #15360	@ D.7427,
+ 103 0038 C4F20103 		movt	r3, 16385	@ D.7427,
+ 104 003c 4FF6FF72 		movw	r2, #65535	@ tmp119,
+ 105 0040 C0F27F02 		movt	r2, 127	@ tmp119,
+ 106 0044 5A61     		str	r2, [r3, #20]	@ tmp119, _5->PR
+ 110:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c **** }
+ 107              		.loc 1 110 0
+ 108 0046 BD46     		mov	sp, r7	@,
+ 109              		@ sp needed	@
+ 110 0048 5DF8047B 		ldr	r7, [sp], #4	@,
+ 111 004c 7047     		bx	lr	@
+ 112              		.cfi_endproc
+ 113              	.LFE110:
+ 115 004e 00BF     		.align	2
+ 116              		.global	EXTI_Init
+ 117              		.thumb
+ 118              		.thumb_func
+ 120              	EXTI_Init:
+ 121              	.LFB111:
+ 111:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c **** 
+ 112:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c **** /**
+ 113:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   * @brief  Initializes the EXTI peripheral according to the specified
+ 114:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   *         parameters in the EXTI_InitStruct.
+ 115:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   * @param  EXTI_InitStruct: pointer to a EXTI_InitTypeDef structure
+ 116:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   *         that contains the configuration information for the EXTI peripheral.
+ 117:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   * @retval None
+ 118:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   */
+ 119:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c **** void EXTI_Init(EXTI_InitTypeDef* EXTI_InitStruct)
+ 120:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c **** {
+ 122              		.loc 1 120 0
+ 123              		.cfi_startproc
+ 124              		@ args = 0, pretend = 0, frame = 16
+ 125              		@ frame_needed = 1, uses_anonymous_args = 0
+ 126              		@ link register save eliminated.
+ 127 0050 80B4     		push	{r7}	@
+ 128              		.cfi_def_cfa_offset 4
+ 129              		.cfi_offset 7, -4
+ 130 0052 85B0     		sub	sp, sp, #20	@,,
+ 131              		.cfi_def_cfa_offset 24
+ 132 0054 00AF     		add	r7, sp, #0	@,,
+ 133              		.cfi_def_cfa_register 7
+ 134 0056 7860     		str	r0, [r7, #4]	@ EXTI_InitStruct, EXTI_InitStruct
+ 121:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   uint32_t tmp = 0;
+ 135              		.loc 1 121 0
+ 136 0058 0023     		movs	r3, #0	@ tmp168,
+ 137 005a FB60     		str	r3, [r7, #12]	@ tmp168, tmp
+ 122:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c **** 
+ 123:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   /* Check the parameters */
+ 124:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   assert_param(IS_EXTI_MODE(EXTI_InitStruct->EXTI_Mode));
+ 125:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   assert_param(IS_EXTI_TRIGGER(EXTI_InitStruct->EXTI_Trigger));
+ 126:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   assert_param(IS_EXTI_LINE(EXTI_InitStruct->EXTI_Line));  
+ 127:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   assert_param(IS_FUNCTIONAL_STATE(EXTI_InitStruct->EXTI_LineCmd));
+ 128:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c **** 
+ 129:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   tmp = (uint32_t)EXTI_BASE;
+ 138              		.loc 1 129 0
+ 139 005c 4FF47053 		mov	r3, #15360	@ tmp169,
+ 140 0060 C4F20103 		movt	r3, 16385	@ tmp169,
+ 141 0064 FB60     		str	r3, [r7, #12]	@ tmp169, tmp
+ 130:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****      
+ 131:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   if (EXTI_InitStruct->EXTI_LineCmd != DISABLE)
+ 142              		.loc 1 131 0
+ 143 0066 7B68     		ldr	r3, [r7, #4]	@ tmp170, EXTI_InitStruct
+ 144 0068 9B79     		ldrb	r3, [r3, #6]	@ zero_extendqisi2	@ D.7428, EXTI_InitStruct_3(D)->EXTI_LineCmd
+ 145 006a 002B     		cmp	r3, #0	@ D.7428,
+ 146 006c 74D0     		beq	.L3	@,
+ 132:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   {
+ 133:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****     /* Clear EXTI line configuration */
+ 134:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****     EXTI->IMR &= ~EXTI_InitStruct->EXTI_Line;
+ 147              		.loc 1 134 0
+ 148 006e 4FF47053 		mov	r3, #15360	@ D.7429,
+ 149 0072 C4F20103 		movt	r3, 16385	@ D.7429,
+ 150 0076 4FF47052 		mov	r2, #15360	@ D.7429,
+ 151 007a C4F20102 		movt	r2, 16385	@ D.7429,
+ 152 007e 1168     		ldr	r1, [r2]	@ D.7430, _6->IMR
+ 153 0080 7A68     		ldr	r2, [r7, #4]	@ tmp171, EXTI_InitStruct
+ 154 0082 1268     		ldr	r2, [r2]	@ D.7430, EXTI_InitStruct_3(D)->EXTI_Line
+ 155 0084 D243     		mvns	r2, r2	@ D.7430, D.7430
+ 156 0086 0A40     		ands	r2, r2, r1	@, D.7430, D.7430, D.7430
+ 157 0088 1A60     		str	r2, [r3]	@ D.7430, _5->IMR
+ 135:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****     EXTI->EMR &= ~EXTI_InitStruct->EXTI_Line;
+ 158              		.loc 1 135 0
+ 159 008a 4FF47053 		mov	r3, #15360	@ D.7429,
+ 160 008e C4F20103 		movt	r3, 16385	@ D.7429,
+ 161 0092 4FF47052 		mov	r2, #15360	@ D.7429,
+ 162 0096 C4F20102 		movt	r2, 16385	@ D.7429,
+ 163 009a 5168     		ldr	r1, [r2, #4]	@ D.7430, _12->EMR
+ 164 009c 7A68     		ldr	r2, [r7, #4]	@ tmp172, EXTI_InitStruct
+ 165 009e 1268     		ldr	r2, [r2]	@ D.7430, EXTI_InitStruct_3(D)->EXTI_Line
+ 166 00a0 D243     		mvns	r2, r2	@ D.7430, D.7430
+ 167 00a2 0A40     		ands	r2, r2, r1	@, D.7430, D.7430, D.7430
+ 168 00a4 5A60     		str	r2, [r3, #4]	@ D.7430, _11->EMR
+ 136:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****     
+ 137:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****     tmp += EXTI_InitStruct->EXTI_Mode;
+ 169              		.loc 1 137 0
+ 170 00a6 7B68     		ldr	r3, [r7, #4]	@ tmp173, EXTI_InitStruct
+ 171 00a8 1B79     		ldrb	r3, [r3, #4]	@ zero_extendqisi2	@ D.7431, EXTI_InitStruct_3(D)->EXTI_Mode
+ 172 00aa FA68     		ldr	r2, [r7, #12]	@ tmp175, tmp
+ 173 00ac 1344     		add	r3, r3, r2	@ tmp174, tmp175
+ 174 00ae FB60     		str	r3, [r7, #12]	@ tmp174, tmp
+ 138:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c **** 
+ 139:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****     *(__IO uint32_t *) tmp |= EXTI_InitStruct->EXTI_Line;
+ 175              		.loc 1 139 0
+ 176 00b0 FB68     		ldr	r3, [r7, #12]	@ tmp.0, tmp
+ 177 00b2 FA68     		ldr	r2, [r7, #12]	@ tmp.1, tmp
+ 178 00b4 1168     		ldr	r1, [r2]	@ D.7430, *tmp.1_21
+ 179 00b6 7A68     		ldr	r2, [r7, #4]	@ tmp176, EXTI_InitStruct
+ 180 00b8 1268     		ldr	r2, [r2]	@ D.7430, EXTI_InitStruct_3(D)->EXTI_Line
+ 181 00ba 0A43     		orrs	r2, r2, r1	@, D.7430, D.7430, D.7430
+ 182 00bc 1A60     		str	r2, [r3]	@ D.7430, *tmp.0_20
+ 140:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c **** 
+ 141:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****     /* Clear Rising Falling edge configuration */
+ 142:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****     EXTI->RTSR &= ~EXTI_InitStruct->EXTI_Line;
+ 183              		.loc 1 142 0
+ 184 00be 4FF47053 		mov	r3, #15360	@ D.7429,
+ 185 00c2 C4F20103 		movt	r3, 16385	@ D.7429,
+ 186 00c6 4FF47052 		mov	r2, #15360	@ D.7429,
+ 187 00ca C4F20102 		movt	r2, 16385	@ D.7429,
+ 188 00ce 9168     		ldr	r1, [r2, #8]	@ D.7430, _26->RTSR
+ 189 00d0 7A68     		ldr	r2, [r7, #4]	@ tmp177, EXTI_InitStruct
+ 190 00d2 1268     		ldr	r2, [r2]	@ D.7430, EXTI_InitStruct_3(D)->EXTI_Line
+ 191 00d4 D243     		mvns	r2, r2	@ D.7430, D.7430
+ 192 00d6 0A40     		ands	r2, r2, r1	@, D.7430, D.7430, D.7430
+ 193 00d8 9A60     		str	r2, [r3, #8]	@ D.7430, _25->RTSR
+ 143:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****     EXTI->FTSR &= ~EXTI_InitStruct->EXTI_Line;
+ 194              		.loc 1 143 0
+ 195 00da 4FF47053 		mov	r3, #15360	@ D.7429,
+ 196 00de C4F20103 		movt	r3, 16385	@ D.7429,
+ 197 00e2 4FF47052 		mov	r2, #15360	@ D.7429,
+ 198 00e6 C4F20102 		movt	r2, 16385	@ D.7429,
+ 199 00ea D168     		ldr	r1, [r2, #12]	@ D.7430, _32->FTSR
+ 200 00ec 7A68     		ldr	r2, [r7, #4]	@ tmp178, EXTI_InitStruct
+ 201 00ee 1268     		ldr	r2, [r2]	@ D.7430, EXTI_InitStruct_3(D)->EXTI_Line
+ 202 00f0 D243     		mvns	r2, r2	@ D.7430, D.7430
+ 203 00f2 0A40     		ands	r2, r2, r1	@, D.7430, D.7430, D.7430
+ 204 00f4 DA60     		str	r2, [r3, #12]	@ D.7430, _31->FTSR
+ 144:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****     
+ 145:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****     /* Select the trigger for the selected external interrupts */
+ 146:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****     if (EXTI_InitStruct->EXTI_Trigger == EXTI_Trigger_Rising_Falling)
+ 205              		.loc 1 146 0
+ 206 00f6 7B68     		ldr	r3, [r7, #4]	@ tmp179, EXTI_InitStruct
+ 207 00f8 5B79     		ldrb	r3, [r3, #5]	@ zero_extendqisi2	@ D.7432, EXTI_InitStruct_3(D)->EXTI_Trigger
+ 208 00fa 102B     		cmp	r3, #16	@ D.7432,
+ 209 00fc 1AD1     		bne	.L4	@,
+ 147:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****     {
+ 148:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****       /* Rising Falling edge */
+ 149:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****       EXTI->RTSR |= EXTI_InitStruct->EXTI_Line;
+ 210              		.loc 1 149 0
+ 211 00fe 4FF47053 		mov	r3, #15360	@ D.7429,
+ 212 0102 C4F20103 		movt	r3, 16385	@ D.7429,
+ 213 0106 4FF47052 		mov	r2, #15360	@ D.7429,
+ 214 010a C4F20102 		movt	r2, 16385	@ D.7429,
+ 215 010e 9168     		ldr	r1, [r2, #8]	@ D.7430, _39->RTSR
+ 216 0110 7A68     		ldr	r2, [r7, #4]	@ tmp180, EXTI_InitStruct
+ 217 0112 1268     		ldr	r2, [r2]	@ D.7430, EXTI_InitStruct_3(D)->EXTI_Line
+ 218 0114 0A43     		orrs	r2, r2, r1	@, D.7430, D.7430, D.7430
+ 219 0116 9A60     		str	r2, [r3, #8]	@ D.7430, _38->RTSR
+ 150:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****       EXTI->FTSR |= EXTI_InitStruct->EXTI_Line;
+ 220              		.loc 1 150 0
+ 221 0118 4FF47053 		mov	r3, #15360	@ D.7429,
+ 222 011c C4F20103 		movt	r3, 16385	@ D.7429,
+ 223 0120 4FF47052 		mov	r2, #15360	@ D.7429,
+ 224 0124 C4F20102 		movt	r2, 16385	@ D.7429,
+ 225 0128 D168     		ldr	r1, [r2, #12]	@ D.7430, _44->FTSR
+ 226 012a 7A68     		ldr	r2, [r7, #4]	@ tmp181, EXTI_InitStruct
+ 227 012c 1268     		ldr	r2, [r2]	@ D.7430, EXTI_InitStruct_3(D)->EXTI_Line
+ 228 012e 0A43     		orrs	r2, r2, r1	@, D.7430, D.7430, D.7430
+ 229 0130 DA60     		str	r2, [r3, #12]	@ D.7430, _43->FTSR
+ 230 0132 1EE0     		b	.L2	@
+ 231              	.L4:
+ 151:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****     }
+ 152:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****     else
+ 153:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****     {
+ 154:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****       tmp = (uint32_t)EXTI_BASE;
+ 232              		.loc 1 154 0
+ 233 0134 4FF47053 		mov	r3, #15360	@ tmp182,
+ 234 0138 C4F20103 		movt	r3, 16385	@ tmp182,
+ 235 013c FB60     		str	r3, [r7, #12]	@ tmp182, tmp
+ 155:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****       tmp += EXTI_InitStruct->EXTI_Trigger;
+ 236              		.loc 1 155 0
+ 237 013e 7B68     		ldr	r3, [r7, #4]	@ tmp183, EXTI_InitStruct
+ 238 0140 5B79     		ldrb	r3, [r3, #5]	@ zero_extendqisi2	@ D.7432, EXTI_InitStruct_3(D)->EXTI_Trigger
+ 239 0142 FA68     		ldr	r2, [r7, #12]	@ tmp185, tmp
+ 240 0144 1344     		add	r3, r3, r2	@ tmp184, tmp185
+ 241 0146 FB60     		str	r3, [r7, #12]	@ tmp184, tmp
+ 156:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c **** 
+ 157:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****       *(__IO uint32_t *) tmp |= EXTI_InitStruct->EXTI_Line;
+ 242              		.loc 1 157 0
+ 243 0148 FB68     		ldr	r3, [r7, #12]	@ tmp.2, tmp
+ 244 014a FA68     		ldr	r2, [r7, #12]	@ tmp.3, tmp
+ 245 014c 1168     		ldr	r1, [r2]	@ D.7430, *tmp.3_53
+ 246 014e 7A68     		ldr	r2, [r7, #4]	@ tmp186, EXTI_InitStruct
+ 247 0150 1268     		ldr	r2, [r2]	@ D.7430, EXTI_InitStruct_3(D)->EXTI_Line
+ 248 0152 0A43     		orrs	r2, r2, r1	@, D.7430, D.7430, D.7430
+ 249 0154 1A60     		str	r2, [r3]	@ D.7430, *tmp.2_52
+ 250 0156 0CE0     		b	.L2	@
+ 251              	.L3:
+ 158:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****     }
+ 159:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   }
+ 160:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   else
+ 161:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   {
+ 162:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****     tmp += EXTI_InitStruct->EXTI_Mode;
+ 252              		.loc 1 162 0
+ 253 0158 7B68     		ldr	r3, [r7, #4]	@ tmp187, EXTI_InitStruct
+ 254 015a 1B79     		ldrb	r3, [r3, #4]	@ zero_extendqisi2	@ D.7431, EXTI_InitStruct_3(D)->EXTI_Mode
+ 255 015c FA68     		ldr	r2, [r7, #12]	@ tmp189, tmp
+ 256 015e 1344     		add	r3, r3, r2	@ tmp188, tmp189
+ 257 0160 FB60     		str	r3, [r7, #12]	@ tmp188, tmp
+ 163:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c **** 
+ 164:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****     /* Disable the selected external lines */
+ 165:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****     *(__IO uint32_t *) tmp &= ~EXTI_InitStruct->EXTI_Line;
+ 258              		.loc 1 165 0
+ 259 0162 FB68     		ldr	r3, [r7, #12]	@ tmp.4, tmp
+ 260 0164 FA68     		ldr	r2, [r7, #12]	@ tmp.5, tmp
+ 261 0166 1168     		ldr	r1, [r2]	@ D.7430, *tmp.5_61
+ 262 0168 7A68     		ldr	r2, [r7, #4]	@ tmp190, EXTI_InitStruct
+ 263 016a 1268     		ldr	r2, [r2]	@ D.7430, EXTI_InitStruct_3(D)->EXTI_Line
+ 264 016c D243     		mvns	r2, r2	@ D.7430, D.7430
+ 265 016e 0A40     		ands	r2, r2, r1	@, D.7430, D.7430, D.7430
+ 266 0170 1A60     		str	r2, [r3]	@ D.7430, *tmp.4_60
+ 267              	.L2:
+ 166:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   }
+ 167:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c **** }
+ 268              		.loc 1 167 0
+ 269 0172 1437     		adds	r7, r7, #20	@,,
+ 270 0174 BD46     		mov	sp, r7	@,
+ 271              		@ sp needed	@
+ 272 0176 5DF8047B 		ldr	r7, [sp], #4	@,
+ 273 017a 7047     		bx	lr	@
+ 274              		.cfi_endproc
+ 275              	.LFE111:
+ 277              		.align	2
+ 278              		.global	EXTI_StructInit
+ 279              		.thumb
+ 280              		.thumb_func
+ 282              	EXTI_StructInit:
+ 283              	.LFB112:
+ 168:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c **** 
+ 169:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c **** /**
+ 170:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   * @brief  Fills each EXTI_InitStruct member with its reset value.
+ 171:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   * @param  EXTI_InitStruct: pointer to a EXTI_InitTypeDef structure which will
+ 172:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   *         be initialized.
+ 173:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   * @retval None
+ 174:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   */
+ 175:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c **** void EXTI_StructInit(EXTI_InitTypeDef* EXTI_InitStruct)
+ 176:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c **** {
+ 284              		.loc 1 176 0
+ 285              		.cfi_startproc
+ 286              		@ args = 0, pretend = 0, frame = 8
+ 287              		@ frame_needed = 1, uses_anonymous_args = 0
+ 288              		@ link register save eliminated.
+ 289 017c 80B4     		push	{r7}	@
+ 290              		.cfi_def_cfa_offset 4
+ 291              		.cfi_offset 7, -4
+ 292 017e 83B0     		sub	sp, sp, #12	@,,
+ 293              		.cfi_def_cfa_offset 16
+ 294 0180 00AF     		add	r7, sp, #0	@,,
+ 295              		.cfi_def_cfa_register 7
+ 296 0182 7860     		str	r0, [r7, #4]	@ EXTI_InitStruct, EXTI_InitStruct
+ 177:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   EXTI_InitStruct->EXTI_Line = EXTI_LINENONE;
+ 297              		.loc 1 177 0
+ 298 0184 7B68     		ldr	r3, [r7, #4]	@ tmp110, EXTI_InitStruct
+ 299 0186 0022     		movs	r2, #0	@ tmp111,
+ 300 0188 1A60     		str	r2, [r3]	@ tmp111, EXTI_InitStruct_1(D)->EXTI_Line
+ 178:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   EXTI_InitStruct->EXTI_Mode = EXTI_Mode_Interrupt;
+ 301              		.loc 1 178 0
+ 302 018a 7B68     		ldr	r3, [r7, #4]	@ tmp112, EXTI_InitStruct
+ 303 018c 0022     		movs	r2, #0	@ tmp113,
+ 304 018e 1A71     		strb	r2, [r3, #4]	@ tmp114, EXTI_InitStruct_1(D)->EXTI_Mode
+ 179:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   EXTI_InitStruct->EXTI_Trigger = EXTI_Trigger_Falling;
+ 305              		.loc 1 179 0
+ 306 0190 7B68     		ldr	r3, [r7, #4]	@ tmp115, EXTI_InitStruct
+ 307 0192 0C22     		movs	r2, #12	@ tmp116,
+ 308 0194 5A71     		strb	r2, [r3, #5]	@ tmp117, EXTI_InitStruct_1(D)->EXTI_Trigger
+ 180:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   EXTI_InitStruct->EXTI_LineCmd = DISABLE;
+ 309              		.loc 1 180 0
+ 310 0196 7B68     		ldr	r3, [r7, #4]	@ tmp118, EXTI_InitStruct
+ 311 0198 0022     		movs	r2, #0	@ tmp119,
+ 312 019a 9A71     		strb	r2, [r3, #6]	@ tmp120, EXTI_InitStruct_1(D)->EXTI_LineCmd
+ 181:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c **** }
+ 313              		.loc 1 181 0
+ 314 019c 0C37     		adds	r7, r7, #12	@,,
+ 315 019e BD46     		mov	sp, r7	@,
+ 316              		@ sp needed	@
+ 317 01a0 5DF8047B 		ldr	r7, [sp], #4	@,
+ 318 01a4 7047     		bx	lr	@
+ 319              		.cfi_endproc
+ 320              	.LFE112:
+ 322 01a6 00BF     		.align	2
+ 323              		.global	EXTI_GenerateSWInterrupt
+ 324              		.thumb
+ 325              		.thumb_func
+ 327              	EXTI_GenerateSWInterrupt:
+ 328              	.LFB113:
+ 182:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c **** 
+ 183:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c **** /**
+ 184:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   * @brief  Generates a Software interrupt on selected EXTI line.
+ 185:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   * @param  EXTI_Line: specifies the EXTI line on which the software interrupt
+ 186:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   *         will be generated.
+ 187:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   *         This parameter can be any combination of EXTI_Linex where x can be (0..22)
+ 188:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   * @retval None
+ 189:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   */
+ 190:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c **** void EXTI_GenerateSWInterrupt(uint32_t EXTI_Line)
+ 191:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c **** {
+ 329              		.loc 1 191 0
+ 330              		.cfi_startproc
+ 331              		@ args = 0, pretend = 0, frame = 8
+ 332              		@ frame_needed = 1, uses_anonymous_args = 0
+ 333              		@ link register save eliminated.
+ 334 01a8 80B4     		push	{r7}	@
+ 335              		.cfi_def_cfa_offset 4
+ 336              		.cfi_offset 7, -4
+ 337 01aa 83B0     		sub	sp, sp, #12	@,,
+ 338              		.cfi_def_cfa_offset 16
+ 339 01ac 00AF     		add	r7, sp, #0	@,,
+ 340              		.cfi_def_cfa_register 7
+ 341 01ae 7860     		str	r0, [r7, #4]	@ EXTI_Line, EXTI_Line
+ 192:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   /* Check the parameters */
+ 193:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   assert_param(IS_EXTI_LINE(EXTI_Line));
+ 194:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   
+ 195:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   EXTI->SWIER |= EXTI_Line;
+ 342              		.loc 1 195 0
+ 343 01b0 4FF47053 		mov	r3, #15360	@ D.7433,
+ 344 01b4 C4F20103 		movt	r3, 16385	@ D.7433,
+ 345 01b8 4FF47052 		mov	r2, #15360	@ D.7433,
+ 346 01bc C4F20102 		movt	r2, 16385	@ D.7433,
+ 347 01c0 1169     		ldr	r1, [r2, #16]	@ D.7434, _2->SWIER
+ 348 01c2 7A68     		ldr	r2, [r7, #4]	@ tmp114, EXTI_Line
+ 349 01c4 0A43     		orrs	r2, r2, r1	@, D.7434, tmp114, D.7434
+ 350 01c6 1A61     		str	r2, [r3, #16]	@ D.7434, _1->SWIER
+ 196:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c **** }
+ 351              		.loc 1 196 0
+ 352 01c8 0C37     		adds	r7, r7, #12	@,,
+ 353 01ca BD46     		mov	sp, r7	@,
+ 354              		@ sp needed	@
+ 355 01cc 5DF8047B 		ldr	r7, [sp], #4	@,
+ 356 01d0 7047     		bx	lr	@
+ 357              		.cfi_endproc
+ 358              	.LFE113:
+ 360 01d2 00BF     		.align	2
+ 361              		.global	EXTI_GetFlagStatus
+ 362              		.thumb
+ 363              		.thumb_func
+ 365              	EXTI_GetFlagStatus:
+ 366              	.LFB114:
+ 197:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c **** 
+ 198:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c **** /**
+ 199:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   * @}
+ 200:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   */
+ 201:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c **** 
+ 202:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c **** /** @defgroup EXTI_Group2 Interrupts and flags management functions
+ 203:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****  *  @brief   Interrupts and flags management functions 
+ 204:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****  *
+ 205:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c **** @verbatim   
+ 206:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****  ===============================================================================
+ 207:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****                   Interrupts and flags management functions
+ 208:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****  ===============================================================================  
+ 209:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c **** 
+ 210:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c **** @endverbatim
+ 211:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   * @{
+ 212:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   */
+ 213:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c **** 
+ 214:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c **** /**
+ 215:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   * @brief  Checks whether the specified EXTI line flag is set or not.
+ 216:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   * @param  EXTI_Line: specifies the EXTI line flag to check.
+ 217:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   *          This parameter can be EXTI_Linex where x can be(0..22)
+ 218:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   * @retval The new state of EXTI_Line (SET or RESET).
+ 219:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   */
+ 220:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c **** FlagStatus EXTI_GetFlagStatus(uint32_t EXTI_Line)
+ 221:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c **** {
+ 367              		.loc 1 221 0
+ 368              		.cfi_startproc
+ 369              		@ args = 0, pretend = 0, frame = 16
+ 370              		@ frame_needed = 1, uses_anonymous_args = 0
+ 371              		@ link register save eliminated.
+ 372 01d4 80B4     		push	{r7}	@
+ 373              		.cfi_def_cfa_offset 4
+ 374              		.cfi_offset 7, -4
+ 375 01d6 85B0     		sub	sp, sp, #20	@,,
+ 376              		.cfi_def_cfa_offset 24
+ 377 01d8 00AF     		add	r7, sp, #0	@,,
+ 378              		.cfi_def_cfa_register 7
+ 379 01da 7860     		str	r0, [r7, #4]	@ EXTI_Line, EXTI_Line
+ 222:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   FlagStatus bitstatus = RESET;
+ 380              		.loc 1 222 0
+ 381 01dc 0023     		movs	r3, #0	@ tmp115,
+ 382 01de FB73     		strb	r3, [r7, #15]	@ tmp116, bitstatus
+ 223:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   /* Check the parameters */
+ 224:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   assert_param(IS_GET_EXTI_LINE(EXTI_Line));
+ 225:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   
+ 226:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   if ((EXTI->PR & EXTI_Line) != (uint32_t)RESET)
+ 383              		.loc 1 226 0
+ 384 01e0 4FF47053 		mov	r3, #15360	@ D.7435,
+ 385 01e4 C4F20103 		movt	r3, 16385	@ D.7435,
+ 386 01e8 5A69     		ldr	r2, [r3, #20]	@ D.7436, _3->PR
+ 387 01ea 7B68     		ldr	r3, [r7, #4]	@ tmp117, EXTI_Line
+ 388 01ec 1340     		ands	r3, r3, r2	@, D.7436, tmp117, D.7436
+ 389 01ee 002B     		cmp	r3, #0	@ D.7436,
+ 390 01f0 02D0     		beq	.L10	@,
+ 227:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   {
+ 228:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****     bitstatus = SET;
+ 391              		.loc 1 228 0
+ 392 01f2 0123     		movs	r3, #1	@ tmp118,
+ 393 01f4 FB73     		strb	r3, [r7, #15]	@ tmp119, bitstatus
+ 394 01f6 01E0     		b	.L11	@
+ 395              	.L10:
+ 229:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   }
+ 230:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   else
+ 231:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   {
+ 232:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****     bitstatus = RESET;
+ 396              		.loc 1 232 0
+ 397 01f8 0023     		movs	r3, #0	@ tmp120,
+ 398 01fa FB73     		strb	r3, [r7, #15]	@ tmp121, bitstatus
+ 399              	.L11:
+ 233:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   }
+ 234:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   return bitstatus;
+ 400              		.loc 1 234 0
+ 401 01fc FB7B     		ldrb	r3, [r7, #15]	@ zero_extendqisi2	@ D.7437, bitstatus
+ 235:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c **** }
+ 402              		.loc 1 235 0
+ 403 01fe 1846     		mov	r0, r3	@, <retval>
+ 404 0200 1437     		adds	r7, r7, #20	@,,
+ 405 0202 BD46     		mov	sp, r7	@,
+ 406              		@ sp needed	@
+ 407 0204 5DF8047B 		ldr	r7, [sp], #4	@,
+ 408 0208 7047     		bx	lr	@
+ 409              		.cfi_endproc
+ 410              	.LFE114:
+ 412 020a 00BF     		.align	2
+ 413              		.global	EXTI_ClearFlag
+ 414              		.thumb
+ 415              		.thumb_func
+ 417              	EXTI_ClearFlag:
+ 418              	.LFB115:
+ 236:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c **** 
+ 237:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c **** /**
+ 238:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   * @brief  Clears the EXTI's line pending flags.
+ 239:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   * @param  EXTI_Line: specifies the EXTI lines flags to clear.
+ 240:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   *          This parameter can be any combination of EXTI_Linex where x can be (0..22)
+ 241:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   * @retval None
+ 242:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   */
+ 243:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c **** void EXTI_ClearFlag(uint32_t EXTI_Line)
+ 244:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c **** {
+ 419              		.loc 1 244 0
+ 420              		.cfi_startproc
+ 421              		@ args = 0, pretend = 0, frame = 8
+ 422              		@ frame_needed = 1, uses_anonymous_args = 0
+ 423              		@ link register save eliminated.
+ 424 020c 80B4     		push	{r7}	@
+ 425              		.cfi_def_cfa_offset 4
+ 426              		.cfi_offset 7, -4
+ 427 020e 83B0     		sub	sp, sp, #12	@,,
+ 428              		.cfi_def_cfa_offset 16
+ 429 0210 00AF     		add	r7, sp, #0	@,,
+ 430              		.cfi_def_cfa_register 7
+ 431 0212 7860     		str	r0, [r7, #4]	@ EXTI_Line, EXTI_Line
+ 245:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   /* Check the parameters */
+ 246:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   assert_param(IS_EXTI_LINE(EXTI_Line));
+ 247:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   
+ 248:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   EXTI->PR = EXTI_Line;
+ 432              		.loc 1 248 0
+ 433 0214 4FF47053 		mov	r3, #15360	@ D.7438,
+ 434 0218 C4F20103 		movt	r3, 16385	@ D.7438,
+ 435 021c 7A68     		ldr	r2, [r7, #4]	@ tmp111, EXTI_Line
+ 436 021e 5A61     		str	r2, [r3, #20]	@ tmp111, _1->PR
+ 249:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c **** }
+ 437              		.loc 1 249 0
+ 438 0220 0C37     		adds	r7, r7, #12	@,,
+ 439 0222 BD46     		mov	sp, r7	@,
+ 440              		@ sp needed	@
+ 441 0224 5DF8047B 		ldr	r7, [sp], #4	@,
+ 442 0228 7047     		bx	lr	@
+ 443              		.cfi_endproc
+ 444              	.LFE115:
+ 446 022a 00BF     		.align	2
+ 447              		.global	EXTI_GetITStatus
+ 448              		.thumb
+ 449              		.thumb_func
+ 451              	EXTI_GetITStatus:
+ 452              	.LFB116:
+ 250:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c **** 
+ 251:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c **** /**
+ 252:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   * @brief  Checks whether the specified EXTI line is asserted or not.
+ 253:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   * @param  EXTI_Line: specifies the EXTI line to check.
+ 254:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   *          This parameter can be EXTI_Linex where x can be(0..22)
+ 255:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   * @retval The new state of EXTI_Line (SET or RESET).
+ 256:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   */
+ 257:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c **** ITStatus EXTI_GetITStatus(uint32_t EXTI_Line)
+ 258:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c **** {
+ 453              		.loc 1 258 0
+ 454              		.cfi_startproc
+ 455              		@ args = 0, pretend = 0, frame = 16
+ 456              		@ frame_needed = 1, uses_anonymous_args = 0
+ 457              		@ link register save eliminated.
+ 458 022c 80B4     		push	{r7}	@
+ 459              		.cfi_def_cfa_offset 4
+ 460              		.cfi_offset 7, -4
+ 461 022e 85B0     		sub	sp, sp, #20	@,,
+ 462              		.cfi_def_cfa_offset 24
+ 463 0230 00AF     		add	r7, sp, #0	@,,
+ 464              		.cfi_def_cfa_register 7
+ 465 0232 7860     		str	r0, [r7, #4]	@ EXTI_Line, EXTI_Line
+ 259:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   ITStatus bitstatus = RESET;
+ 466              		.loc 1 259 0
+ 467 0234 0023     		movs	r3, #0	@ tmp117,
+ 468 0236 FB73     		strb	r3, [r7, #15]	@ tmp118, bitstatus
+ 260:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   uint32_t enablestatus = 0;
+ 469              		.loc 1 260 0
+ 470 0238 0023     		movs	r3, #0	@ tmp119,
+ 471 023a BB60     		str	r3, [r7, #8]	@ tmp119, enablestatus
+ 261:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   /* Check the parameters */
+ 262:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   assert_param(IS_GET_EXTI_LINE(EXTI_Line));
+ 263:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   
+ 264:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   enablestatus =  EXTI->IMR & EXTI_Line;
+ 472              		.loc 1 264 0
+ 473 023c 4FF47053 		mov	r3, #15360	@ D.7439,
+ 474 0240 C4F20103 		movt	r3, 16385	@ D.7439,
+ 475 0244 1A68     		ldr	r2, [r3]	@ D.7440, _4->IMR
+ 476 0246 7B68     		ldr	r3, [r7, #4]	@ tmp121, EXTI_Line
+ 477 0248 1340     		ands	r3, r3, r2	@, tmp120, tmp121, D.7440
+ 478 024a BB60     		str	r3, [r7, #8]	@ tmp120, enablestatus
+ 265:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   if (((EXTI->PR & EXTI_Line) != (uint32_t)RESET) && (enablestatus != (uint32_t)RESET))
+ 479              		.loc 1 265 0
+ 480 024c 4FF47053 		mov	r3, #15360	@ D.7439,
+ 481 0250 C4F20103 		movt	r3, 16385	@ D.7439,
+ 482 0254 5A69     		ldr	r2, [r3, #20]	@ D.7440, _8->PR
+ 483 0256 7B68     		ldr	r3, [r7, #4]	@ tmp122, EXTI_Line
+ 484 0258 1340     		ands	r3, r3, r2	@, D.7440, tmp122, D.7440
+ 485 025a 002B     		cmp	r3, #0	@ D.7440,
+ 486 025c 05D0     		beq	.L15	@,
+ 487              		.loc 1 265 0 is_stmt 0 discriminator 1
+ 488 025e BB68     		ldr	r3, [r7, #8]	@ tmp123, enablestatus
+ 489 0260 002B     		cmp	r3, #0	@ tmp123,
+ 490 0262 02D0     		beq	.L15	@,
+ 266:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   {
+ 267:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****     bitstatus = SET;
+ 491              		.loc 1 267 0 is_stmt 1
+ 492 0264 0123     		movs	r3, #1	@ tmp124,
+ 493 0266 FB73     		strb	r3, [r7, #15]	@ tmp125, bitstatus
+ 494 0268 01E0     		b	.L16	@
+ 495              	.L15:
+ 268:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   }
+ 269:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   else
+ 270:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   {
+ 271:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****     bitstatus = RESET;
+ 496              		.loc 1 271 0
+ 497 026a 0023     		movs	r3, #0	@ tmp126,
+ 498 026c FB73     		strb	r3, [r7, #15]	@ tmp127, bitstatus
+ 499              	.L16:
+ 272:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   }
+ 273:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   return bitstatus;
+ 500              		.loc 1 273 0
+ 501 026e FB7B     		ldrb	r3, [r7, #15]	@ zero_extendqisi2	@ D.7441, bitstatus
+ 274:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c **** }
+ 502              		.loc 1 274 0
+ 503 0270 1846     		mov	r0, r3	@, <retval>
+ 504 0272 1437     		adds	r7, r7, #20	@,,
+ 505 0274 BD46     		mov	sp, r7	@,
+ 506              		@ sp needed	@
+ 507 0276 5DF8047B 		ldr	r7, [sp], #4	@,
+ 508 027a 7047     		bx	lr	@
+ 509              		.cfi_endproc
+ 510              	.LFE116:
+ 512              		.align	2
+ 513              		.global	EXTI_ClearITPendingBit
+ 514              		.thumb
+ 515              		.thumb_func
+ 517              	EXTI_ClearITPendingBit:
+ 518              	.LFB117:
+ 275:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c **** 
+ 276:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c **** /**
+ 277:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   * @brief  Clears the EXTI's line pending bits.
+ 278:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   * @param  EXTI_Line: specifies the EXTI lines to clear.
+ 279:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   *          This parameter can be any combination of EXTI_Linex where x can be (0..22)
+ 280:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   * @retval None
+ 281:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   */
+ 282:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c **** void EXTI_ClearITPendingBit(uint32_t EXTI_Line)
+ 283:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c **** {
+ 519              		.loc 1 283 0
+ 520              		.cfi_startproc
+ 521              		@ args = 0, pretend = 0, frame = 8
+ 522              		@ frame_needed = 1, uses_anonymous_args = 0
+ 523              		@ link register save eliminated.
+ 524 027c 80B4     		push	{r7}	@
+ 525              		.cfi_def_cfa_offset 4
+ 526              		.cfi_offset 7, -4
+ 527 027e 83B0     		sub	sp, sp, #12	@,,
+ 528              		.cfi_def_cfa_offset 16
+ 529 0280 00AF     		add	r7, sp, #0	@,,
+ 530              		.cfi_def_cfa_register 7
+ 531 0282 7860     		str	r0, [r7, #4]	@ EXTI_Line, EXTI_Line
+ 284:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   /* Check the parameters */
+ 285:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   assert_param(IS_EXTI_LINE(EXTI_Line));
+ 286:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   
+ 287:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c ****   EXTI->PR = EXTI_Line;
+ 532              		.loc 1 287 0
+ 533 0284 4FF47053 		mov	r3, #15360	@ D.7442,
+ 534 0288 C4F20103 		movt	r3, 16385	@ D.7442,
+ 535 028c 7A68     		ldr	r2, [r7, #4]	@ tmp111, EXTI_Line
+ 536 028e 5A61     		str	r2, [r3, #20]	@ tmp111, _1->PR
+ 288:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f4xx_exti.c **** }
+ 537              		.loc 1 288 0
+ 538 0290 0C37     		adds	r7, r7, #12	@,,
+ 539 0292 BD46     		mov	sp, r7	@,
+ 540              		@ sp needed	@
+ 541 0294 5DF8047B 		ldr	r7, [sp], #4	@,
+ 542 0298 7047     		bx	lr	@
+ 543              		.cfi_endproc
+ 544              	.LFE117:
+ 546              	.Letext0:
+ 547              		.file 2 "/opt/toolchains/eabi/arm-2014.05/arm-none-eabi/include/stdint.h"
+ 548              		.file 3 "/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/stm32f4xx.h"
+ 549              		.file 4 "/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/stm32f
+ 550              		.file 5 "/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/core/core_cm4
+DEFINED SYMBOLS
+                            *ABS*:00000000 stm32f4xx_exti.c
+     /tmp/ccm04un9.s:63     .text:00000000 $t
+     /tmp/ccm04un9.s:68     .text:00000000 EXTI_DeInit
+     /tmp/ccm04un9.s:120    .text:00000050 EXTI_Init
+     /tmp/ccm04un9.s:282    .text:0000017c EXTI_StructInit
+     /tmp/ccm04un9.s:327    .text:000001a8 EXTI_GenerateSWInterrupt
+     /tmp/ccm04un9.s:365    .text:000001d4 EXTI_GetFlagStatus
+     /tmp/ccm04un9.s:417    .text:0000020c EXTI_ClearFlag
+     /tmp/ccm04un9.s:451    .text:0000022c EXTI_GetITStatus
+     /tmp/ccm04un9.s:517    .text:0000027c EXTI_ClearITPendingBit
+                     .debug_frame:00000010 $d
+
+NO UNDEFINED SYMBOLS

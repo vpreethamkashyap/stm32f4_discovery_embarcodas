@@ -1,0 +1,927 @@
+   1              		.syntax unified
+   2              		.cpu cortex-m4
+   3              		.eabi_attribute 27, 3	@ Tag_ABI_HardFP_use
+   4              		.eabi_attribute 28, 1	@ Tag_ABI_VFP_args
+   5              		.fpu vfp
+   6              		.eabi_attribute 20, 1	@ Tag_ABI_FP_denormal
+   7              		.eabi_attribute 21, 1	@ Tag_ABI_FP_exceptions
+   8              		.eabi_attribute 23, 3	@ Tag_ABI_FP_number_model
+   9              		.eabi_attribute 24, 1	@ Tag_ABI_align8_needed
+  10              		.eabi_attribute 25, 1	@ Tag_ABI_align8_preserved
+  11              		.eabi_attribute 26, 1	@ Tag_ABI_enum_size
+  12              		.eabi_attribute 30, 6	@ Tag_ABI_optimization_goals
+  13              		.eabi_attribute 34, 1	@ Tag_CPU_unaligned_access
+  14              		.eabi_attribute 18, 4	@ Tag_ABI_PCS_wchar_t
+  15              		.file	"system_stm32f4xx.c"
+  16              	@ GNU C (Sourcery CodeBench Lite 2014.05-28) version 4.8.3 20140320 (prerelease) (arm-none-eabi)
+  17              	@	compiled by GNU C version 4.7.2, GMP version 5.0.5, MPFR version 3.1.1-p2, MPC version 1.0.1
+  18              	@ GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+  19              	@ options passed: 
+  20              	@ -I /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world
+  21              	@ -I /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src
+  22              	@ -I /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/project
+  23              	@ -I /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/core
+  24              	@ -I /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device
+  25              	@ -imultilib thumb2
+  26              	@ -iprefix /opt/toolchains/eabi/arm-2014.05/bin/../lib/gcc/arm-none-eabi/4.8.3/
+  27              	@ -isysroot /opt/toolchains/eabi/arm-2014.05/bin/../arm-none-eabi
+  28              	@ -MMD /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/system_stm32f4xx
+  29              	@ -MF /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/.dep/system_stm32
+  30              	@ -MP
+  31              	@ -MQ /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/system_stm32f4xx.
+  32              	@ -D__USES_INITFINI__ -D USE_STDPERIPH_DRIVER -D STM32F4XX
+  33              	@ -D __CS_SOURCERYGXX_MAJ__=2014 -D __CS_SOURCERYGXX_MIN__=5
+  34              	@ -D __CS_SOURCERYGXX_REV__=28
+  35              	@ /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c
+  36              	@ -mcpu=cortex-m4 -mtune=cortex-m4 -mfloat-abi=hard -mthumb -mapcs-frame
+  37              	@ -auxbase-strip /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/system
+  38              	@ -g -O0 -Wall -Wstrict-prototypes -fverbose-asm
+  39              	@ options enabled:  -faggressive-loop-optimizations -fauto-inc-dec
+  40              	@ -fbranch-count-reg -fcommon -fdelete-null-pointer-checks -fdwarf2-cfi-asm
+  41              	@ -fearly-inlining -feliminate-unused-debug-types -ffunction-cse -fgcse-lm
+  42              	@ -fgnu-runtime -fident -finline-atomics -fira-hoist-pressure
+  43              	@ -fira-share-save-slots -fira-share-spill-slots -fivopts
+  44              	@ -fkeep-static-consts -fleading-underscore -fmath-errno
+  45              	@ -fmerge-debug-strings -fmove-loop-invariants -fpeephole
+  46              	@ -fprefetch-loop-arrays -freg-struct-return
+  47              	@ -fsched-critical-path-heuristic -fsched-dep-count-heuristic
+  48              	@ -fsched-group-heuristic -fsched-interblock -fsched-last-insn-heuristic
+  49              	@ -fsched-rank-heuristic -fsched-spec -fsched-spec-insn-heuristic
+  50              	@ -fsched-stalled-insns-dep -fshow-column -fsigned-zeros
+  51              	@ -fsplit-ivs-in-unroller -fstrict-volatile-bitfields -fsync-libcalls
+  52              	@ -ftrapping-math -ftree-coalesce-vars -ftree-cselim -ftree-forwprop
+  53              	@ -ftree-loop-if-convert -ftree-loop-im -ftree-loop-ivcanon
+  54              	@ -ftree-loop-optimize -ftree-parallelize-loops= -ftree-phiprop -ftree-pta
+  55              	@ -ftree-reassoc -ftree-scev-cprop -ftree-slp-vectorize
+  56              	@ -ftree-vect-loop-version -funit-at-a-time -fverbose-asm
+  57              	@ -fzero-initialized-in-bss -mlittle-endian -msched-prolog -mthumb
+  58              	@ -munaligned-access -mvectorize-with-neon-quad
+  59              	
+  60              		.text
+  61              	.Ltext0:
+  62              		.cfi_sections	.debug_frame
+  63              		.global	SystemCoreClock
+  64              		.data
+  65              		.align	2
+  68              	SystemCoreClock:
+  69 0000 007A030A 		.word	168000000
+  70              		.global	AHBPrescTable
+  71              		.align	2
+  74              	AHBPrescTable:
+  75 0004 00       		.byte	0
+  76 0005 00       		.byte	0
+  77 0006 00       		.byte	0
+  78 0007 00       		.byte	0
+  79 0008 00       		.byte	0
+  80 0009 00       		.byte	0
+  81 000a 00       		.byte	0
+  82 000b 00       		.byte	0
+  83 000c 01       		.byte	1
+  84 000d 02       		.byte	2
+  85 000e 03       		.byte	3
+  86 000f 04       		.byte	4
+  87 0010 06       		.byte	6
+  88 0011 07       		.byte	7
+  89 0012 08       		.byte	8
+  90 0013 09       		.byte	9
+  91              		.text
+  92              		.align	2
+  93              		.global	SystemInit
+  94              		.thumb
+  95              		.thumb_func
+  97              	SystemInit:
+  98              	.LFB110:
+  99              		.file 1 "/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4x
+   1:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** /**
+   2:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   ******************************************************************************
+   3:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   * @file    system_stm32f4xx.c
+   4:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   * @author  MCD Application Team
+   5:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   * @version V1.0.0
+   6:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   * @date    30-September-2011
+   7:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   * @brief   CMSIS Cortex-M4 Device Peripheral Access Layer System Source File.
+   8:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *          This file contains the system clock configuration for STM32F4xx devices,
+   9:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *          and is generated by the clock configuration tool
+  10:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *          stm32f4xx_Clock_Configuration_V1.0.0.xls
+  11:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *             
+  12:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   * 1.  This file provides two functions and one global variable to be called from 
+  13:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *     user application:
+  14:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *      - SystemInit(): Setups the system clock (System clock source, PLL Multiplier
+  15:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *                      and Divider factors, AHB/APBx prescalers and Flash settings),
+  16:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *                      depending on the configuration made in the clock xls tool. 
+  17:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *                      This function is called at startup just after reset and 
+  18:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *                      before branch to main program. This call is made inside
+  19:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *                      the "startup_stm32f4xx.s" file.
+  20:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *
+  21:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *      - SystemCoreClock variable: Contains the core clock (HCLK), it can be used
+  22:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *                                  by the user application to setup the SysTick 
+  23:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *                                  timer or configure other parameters.
+  24:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *                                     
+  25:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *      - SystemCoreClockUpdate(): Updates the variable SystemCoreClock and must
+  26:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *                                 be called whenever the core clock is changed
+  27:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *                                 during program execution.
+  28:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *
+  29:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   * 2. After each device reset the HSI (16 MHz) is used as system clock source.
+  30:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *    Then SystemInit() function is called, in "startup_stm32f4xx.s" file, to
+  31:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *    configure the system clock before to branch to main program.
+  32:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *
+  33:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   * 3. If the system clock source selected by user fails to startup, the SystemInit()
+  34:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *    function will do nothing and HSI still used as system clock source. User can 
+  35:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *    add some code to deal with this issue inside the SetSysClock() function.
+  36:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *
+  37:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   * 4. The default value of HSE crystal is set to 8 MHz, refer to "HSE_VALUE" define
+  38:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *    in "stm32f4xx.h" file. When HSE is used as system clock source, directly or
+  39:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *    through PLL, and you are using different crystal you have to adapt the HSE
+  40:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *    value to your own configuration.
+  41:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *
+  42:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   * 5. This file configures the system clock as follows:
+  43:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *=============================================================================
+  44:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *=============================================================================
+  45:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *        Supported STM32F4xx device revision    | Rev A
+  46:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *-----------------------------------------------------------------------------
+  47:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *        System Clock source                    | PLL (HSE)
+  48:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *-----------------------------------------------------------------------------
+  49:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *        SYSCLK(Hz)                             | 168000000
+  50:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *-----------------------------------------------------------------------------
+  51:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *        HCLK(Hz)                               | 168000000
+  52:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *-----------------------------------------------------------------------------
+  53:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *        AHB Prescaler                          | 1
+  54:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *-----------------------------------------------------------------------------
+  55:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *        APB1 Prescaler                         | 4
+  56:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *-----------------------------------------------------------------------------
+  57:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *        APB2 Prescaler                         | 2
+  58:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *-----------------------------------------------------------------------------
+  59:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *        HSE Frequency(Hz)                      | 8000000
+  60:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *-----------------------------------------------------------------------------
+  61:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *        PLL_M                                  | 8
+  62:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *-----------------------------------------------------------------------------
+  63:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *        PLL_N                                  | 336
+  64:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *-----------------------------------------------------------------------------
+  65:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *        PLL_P                                  | 2
+  66:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *-----------------------------------------------------------------------------
+  67:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *        PLL_Q                                  | 7
+  68:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *-----------------------------------------------------------------------------
+  69:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *        PLLI2S_N                               | NA
+  70:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *-----------------------------------------------------------------------------
+  71:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *        PLLI2S_R                               | NA
+  72:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *-----------------------------------------------------------------------------
+  73:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *        I2S input clock                        | NA
+  74:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *-----------------------------------------------------------------------------
+  75:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *        VDD(V)                                 | 3.3
+  76:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *-----------------------------------------------------------------------------
+  77:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *        Main regulator output voltage          | Scale1 mode
+  78:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *-----------------------------------------------------------------------------
+  79:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *        Flash Latency(WS)                      | 5
+  80:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *-----------------------------------------------------------------------------
+  81:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *        Prefetch Buffer                        | OFF
+  82:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *-----------------------------------------------------------------------------
+  83:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *        Instruction cache                      | ON
+  84:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *-----------------------------------------------------------------------------
+  85:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *        Data cache                             | ON
+  86:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *-----------------------------------------------------------------------------
+  87:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *        Require 48MHz for USB OTG FS,          | Enabled
+  88:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *        SDIO and RNG clock                     |
+  89:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *-----------------------------------------------------------------------------
+  90:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *=============================================================================
+  91:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   ****************************************************************************** 
+  92:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   * @attention
+  93:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *
+  94:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   * THE PRESENT FIRMWARE WHICH IS FOR GUIDANCE ONLY AIMS AT PROVIDING CUSTOMERS
+  95:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   * WITH CODING INFORMATION REGARDING THEIR PRODUCTS IN ORDER FOR THEM TO SAVE
+  96:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   * TIME. AS A RESULT, STMICROELECTRONICS SHALL NOT BE HELD LIABLE FOR ANY
+  97:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   * DIRECT, INDIRECT OR CONSEQUENTIAL DAMAGES WITH RESPECT TO ANY CLAIMS ARISING
+  98:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   * FROM THE CONTENT OF SUCH FIRMWARE AND/OR THE USE MADE BY CUSTOMERS OF THE
+  99:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   * CODING INFORMATION CONTAINED HEREIN IN CONNECTION WITH THEIR PRODUCTS.
+ 100:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *
+ 101:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   * <h2><center>&copy; COPYRIGHT 2011 STMicroelectronics</center></h2>
+ 102:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   ******************************************************************************
+ 103:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   */
+ 104:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** 
+ 105:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** /** @addtogroup CMSIS
+ 106:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   * @{
+ 107:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   */
+ 108:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** 
+ 109:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** /** @addtogroup stm32f4xx_system
+ 110:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   * @{
+ 111:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   */  
+ 112:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   
+ 113:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** /** @addtogroup STM32F4xx_System_Private_Includes
+ 114:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   * @{
+ 115:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   */
+ 116:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** 
+ 117:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** #include "stm32f4xx.h"
+ 118:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** 
+ 119:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** /**
+ 120:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   * @}
+ 121:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   */
+ 122:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** 
+ 123:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** /** @addtogroup STM32F4xx_System_Private_TypesDefinitions
+ 124:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   * @{
+ 125:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   */
+ 126:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** 
+ 127:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** /**
+ 128:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   * @}
+ 129:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   */
+ 130:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** 
+ 131:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** /** @addtogroup STM32F4xx_System_Private_Defines
+ 132:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   * @{
+ 133:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   */
+ 134:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** 
+ 135:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** /************************* Miscellaneous Configuration ************************/
+ 136:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** /*!< Uncomment the following line if you need to use external SRAM mounted
+ 137:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****      on STM324xG_EVAL board as data memory  */
+ 138:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** /* #define DATA_IN_ExtSRAM */
+ 139:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** 
+ 140:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** /*!< Uncomment the following line if you need to relocate your vector Table in
+ 141:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****      Internal SRAM. */
+ 142:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** /* #define VECT_TAB_SRAM */
+ 143:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** #define VECT_TAB_OFFSET  0x00 /*!< Vector Table base offset field. 
+ 144:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****                                    This value must be a multiple of 0x200. */
+ 145:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** /******************************************************************************/
+ 146:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** 
+ 147:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** /************************* PLL Parameters *************************************/
+ 148:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** /* PLL_VCO = (HSE_VALUE or HSI_VALUE / PLL_M) * PLL_N */
+ 149:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** #define PLL_M      8
+ 150:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** #define PLL_N      336
+ 151:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** 
+ 152:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** /* SYSCLK = PLL_VCO / PLL_P */
+ 153:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** #define PLL_P      2
+ 154:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** 
+ 155:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** /* USB OTG FS, SDIO and RNG Clock =  PLL_VCO / PLLQ */
+ 156:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** #define PLL_Q      7
+ 157:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** 
+ 158:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** /******************************************************************************/
+ 159:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** 
+ 160:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** /**
+ 161:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   * @}
+ 162:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   */
+ 163:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** 
+ 164:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** /** @addtogroup STM32F4xx_System_Private_Macros
+ 165:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   * @{
+ 166:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   */
+ 167:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** 
+ 168:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** /**
+ 169:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   * @}
+ 170:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   */
+ 171:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** 
+ 172:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** /** @addtogroup STM32F4xx_System_Private_Variables
+ 173:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   * @{
+ 174:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   */
+ 175:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** 
+ 176:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   uint32_t SystemCoreClock = 168000000;
+ 177:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** 
+ 178:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   __I uint8_t AHBPrescTable[16] = {0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 4, 6, 7, 8, 9};
+ 179:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** 
+ 180:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** /**
+ 181:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   * @}
+ 182:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   */
+ 183:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** 
+ 184:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** /** @addtogroup STM32F4xx_System_Private_FunctionPrototypes
+ 185:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   * @{
+ 186:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   */
+ 187:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** 
+ 188:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** static void SetSysClock(void);
+ 189:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** #ifdef DATA_IN_ExtSRAM
+ 190:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   static void SystemInit_ExtMemCtl(void); 
+ 191:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** #endif /* DATA_IN_ExtSRAM */
+ 192:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** 
+ 193:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** /**
+ 194:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   * @}
+ 195:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   */
+ 196:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** 
+ 197:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** /** @addtogroup STM32F4xx_System_Private_Functions
+ 198:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   * @{
+ 199:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   */
+ 200:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** 
+ 201:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** /**
+ 202:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   * @brief  Setup the microcontroller system
+ 203:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *         Initialize the Embedded Flash Interface, the PLL and update the 
+ 204:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *         SystemFrequency variable.
+ 205:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   * @param  None
+ 206:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   * @retval None
+ 207:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   */
+ 208:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** void SystemInit(void)
+ 209:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** {
+ 100              		.loc 1 209 0
+ 101              		.cfi_startproc
+ 102              		@ args = 0, pretend = 0, frame = 0
+ 103              		@ frame_needed = 1, uses_anonymous_args = 0
+ 104 0000 80B5     		push	{r7, lr}	@
+ 105              		.cfi_def_cfa_offset 8
+ 106              		.cfi_offset 7, -8
+ 107              		.cfi_offset 14, -4
+ 108 0002 00AF     		add	r7, sp, #0	@,,
+ 109              		.cfi_def_cfa_register 7
+ 210:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   /* FPU settings ------------------------------------------------------------*/
+ 211:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   #if (__FPU_PRESENT == 1) && (__FPU_USED == 1)
+ 212:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****     SCB->CPACR |= ((3UL << 10*2)|(3UL << 11*2));  /* set CP10 and CP11 Full Access */
+ 110              		.loc 1 212 0
+ 111 0004 4FF46D43 		mov	r3, #60672	@ D.7448,
+ 112 0008 CEF20003 		movt	r3, 57344	@ D.7448,
+ 113 000c 4FF46D42 		mov	r2, #60672	@ D.7448,
+ 114 0010 CEF20002 		movt	r2, 57344	@ D.7448,
+ 115 0014 D2F88820 		ldr	r2, [r2, #136]	@ D.7449, _2->CPACR
+ 116 0018 42F47002 		orr	r2, r2, #15728640	@ D.7449, D.7449,
+ 117 001c C3F88820 		str	r2, [r3, #136]	@ D.7449, _1->CPACR
+ 213:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   #endif
+ 214:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** 
+ 215:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   /* Reset the RCC clock configuration to the default reset state ------------*/
+ 216:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   /* Set HSION bit */
+ 217:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   RCC->CR |= (uint32_t)0x00000001;
+ 118              		.loc 1 217 0
+ 119 0020 4FF46053 		mov	r3, #14336	@ D.7450,
+ 120 0024 C4F20203 		movt	r3, 16386	@ D.7450,
+ 121 0028 4FF46052 		mov	r2, #14336	@ D.7450,
+ 122 002c C4F20202 		movt	r2, 16386	@ D.7450,
+ 123 0030 1268     		ldr	r2, [r2]	@ D.7449, _6->CR
+ 124 0032 42F00102 		orr	r2, r2, #1	@ D.7449, D.7449,
+ 125 0036 1A60     		str	r2, [r3]	@ D.7449, _5->CR
+ 218:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** 
+ 219:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   /* Reset CFGR register */
+ 220:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   RCC->CFGR = 0x00000000;
+ 126              		.loc 1 220 0
+ 127 0038 4FF46053 		mov	r3, #14336	@ D.7450,
+ 128 003c C4F20203 		movt	r3, 16386	@ D.7450,
+ 129 0040 0022     		movs	r2, #0	@ tmp130,
+ 130 0042 9A60     		str	r2, [r3, #8]	@ tmp130, _9->CFGR
+ 221:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** 
+ 222:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   /* Reset HSEON, CSSON and PLLON bits */
+ 223:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   RCC->CR &= (uint32_t)0xFEF6FFFF;
+ 131              		.loc 1 223 0
+ 132 0044 4FF46053 		mov	r3, #14336	@ D.7450,
+ 133 0048 C4F20203 		movt	r3, 16386	@ D.7450,
+ 134 004c 4FF46052 		mov	r2, #14336	@ D.7450,
+ 135 0050 C4F20202 		movt	r2, 16386	@ D.7450,
+ 136 0054 1268     		ldr	r2, [r2]	@ D.7449, _11->CR
+ 137 0056 22F08472 		bic	r2, r2, #17301504	@ D.7449, D.7449,
+ 138 005a 22F48032 		bic	r2, r2, #65536	@ D.7449, D.7449,
+ 139 005e 1A60     		str	r2, [r3]	@ D.7449, _10->CR
+ 224:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** 
+ 225:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   /* Reset PLLCFGR register */
+ 226:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   RCC->PLLCFGR = 0x24003010;
+ 140              		.loc 1 226 0
+ 141 0060 4FF46053 		mov	r3, #14336	@ D.7450,
+ 142 0064 C4F20203 		movt	r3, 16386	@ D.7450,
+ 143 0068 43F21002 		movw	r2, #12304	@ tmp131,
+ 144 006c C2F20042 		movt	r2, 9216	@ tmp131,
+ 145 0070 5A60     		str	r2, [r3, #4]	@ tmp131, _14->PLLCFGR
+ 227:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** 
+ 228:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   /* Reset HSEBYP bit */
+ 229:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   RCC->CR &= (uint32_t)0xFFFBFFFF;
+ 146              		.loc 1 229 0
+ 147 0072 4FF46053 		mov	r3, #14336	@ D.7450,
+ 148 0076 C4F20203 		movt	r3, 16386	@ D.7450,
+ 149 007a 4FF46052 		mov	r2, #14336	@ D.7450,
+ 150 007e C4F20202 		movt	r2, 16386	@ D.7450,
+ 151 0082 1268     		ldr	r2, [r2]	@ D.7449, _16->CR
+ 152 0084 22F48022 		bic	r2, r2, #262144	@ D.7449, D.7449,
+ 153 0088 1A60     		str	r2, [r3]	@ D.7449, _15->CR
+ 230:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** 
+ 231:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   /* Disable all interrupts */
+ 232:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   RCC->CIR = 0x00000000;
+ 154              		.loc 1 232 0
+ 155 008a 4FF46053 		mov	r3, #14336	@ D.7450,
+ 156 008e C4F20203 		movt	r3, 16386	@ D.7450,
+ 157 0092 0022     		movs	r2, #0	@ tmp132,
+ 158 0094 DA60     		str	r2, [r3, #12]	@ tmp132, _19->CIR
+ 233:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** 
+ 234:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** #ifdef DATA_IN_ExtSRAM
+ 235:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   SystemInit_ExtMemCtl(); 
+ 236:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** #endif /* DATA_IN_ExtSRAM */
+ 237:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****          
+ 238:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   /* Configure the System clock source, PLL Multiplier and Divider factors, 
+ 239:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****      AHB/APBx prescalers and Flash settings ----------------------------------*/
+ 240:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   SetSysClock();
+ 159              		.loc 1 240 0
+ 160 0096 00F0B3F8 		bl	SetSysClock	@
+ 241:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** 
+ 242:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   /* Configure the Vector Table location add offset address ------------------*/
+ 243:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** #ifdef VECT_TAB_SRAM
+ 244:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   SCB->VTOR = SRAM_BASE | VECT_TAB_OFFSET; /* Vector Table Relocation in Internal SRAM */
+ 245:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** #else
+ 246:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   SCB->VTOR = FLASH_BASE | VECT_TAB_OFFSET; /* Vector Table Relocation in Internal FLASH */
+ 161              		.loc 1 246 0
+ 162 009a 4FF46D43 		mov	r3, #60672	@ D.7448,
+ 163 009e CEF20003 		movt	r3, 57344	@ D.7448,
+ 164 00a2 4FF00062 		mov	r2, #134217728	@ tmp133,
+ 165 00a6 9A60     		str	r2, [r3, #8]	@ tmp133, _20->VTOR
+ 247:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** #endif
+ 248:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** }
+ 166              		.loc 1 248 0
+ 167 00a8 80BD     		pop	{r7, pc}	@
+ 168              		.cfi_endproc
+ 169              	.LFE110:
+ 171 00aa 00BF     		.align	2
+ 172              		.global	SystemCoreClockUpdate
+ 173              		.thumb
+ 174              		.thumb_func
+ 176              	SystemCoreClockUpdate:
+ 177              	.LFB111:
+ 249:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** 
+ 250:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** /**
+ 251:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****    * @brief  Update SystemCoreClock variable according to Clock Register Values.
+ 252:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *         The SystemCoreClock variable contains the core clock (HCLK), it can
+ 253:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *         be used by the user application to setup the SysTick timer or configure
+ 254:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *         other parameters.
+ 255:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *           
+ 256:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   * @note   Each time the core clock (HCLK) changes, this function must be called
+ 257:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *         to update SystemCoreClock variable value. Otherwise, any configuration
+ 258:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *         based on this variable will be incorrect.         
+ 259:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *     
+ 260:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   * @note   - The system frequency computed by this function is not the real 
+ 261:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *           frequency in the chip. It is calculated based on the predefined 
+ 262:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *           constant and the selected clock source:
+ 263:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *             
+ 264:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *           - If SYSCLK source is HSI, SystemCoreClock will contain the HSI_VALUE(*)
+ 265:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *                                              
+ 266:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *           - If SYSCLK source is HSE, SystemCoreClock will contain the HSE_VALUE(**)
+ 267:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *                          
+ 268:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *           - If SYSCLK source is PLL, SystemCoreClock will contain the HSE_VALUE(**) 
+ 269:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *             or HSI_VALUE(*) multiplied/divided by the PLL factors.
+ 270:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *         
+ 271:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *         (*) HSI_VALUE is a constant defined in stm32f4xx.h file (default value
+ 272:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *             16 MHz) but the real value may vary depending on the variations
+ 273:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *             in voltage and temperature.   
+ 274:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *    
+ 275:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *         (**) HSE_VALUE is a constant defined in stm32f4xx.h file (default value
+ 276:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *              25 MHz), user has to ensure that HSE_VALUE is same as the real
+ 277:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *              frequency of the crystal used. Otherwise, this function may
+ 278:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *              have wrong result.
+ 279:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *                
+ 280:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *         - The result of this function could be not correct when using fractional
+ 281:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *           value for HSE crystal.
+ 282:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *     
+ 283:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   * @param  None
+ 284:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   * @retval None
+ 285:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   */
+ 286:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** void SystemCoreClockUpdate(void)
+ 287:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** {
+ 178              		.loc 1 287 0
+ 179              		.cfi_startproc
+ 180              		@ args = 0, pretend = 0, frame = 24
+ 181              		@ frame_needed = 1, uses_anonymous_args = 0
+ 182              		@ link register save eliminated.
+ 183 00ac 80B4     		push	{r7}	@
+ 184              		.cfi_def_cfa_offset 4
+ 185              		.cfi_offset 7, -4
+ 186 00ae 87B0     		sub	sp, sp, #28	@,,
+ 187              		.cfi_def_cfa_offset 32
+ 188 00b0 00AF     		add	r7, sp, #0	@,,
+ 189              		.cfi_def_cfa_register 7
+ 288:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   uint32_t tmp = 0, pllvco = 0, pllp = 2, pllsource = 0, pllm = 2;
+ 190              		.loc 1 288 0
+ 191 00b2 0023     		movs	r3, #0	@ tmp141,
+ 192 00b4 3B61     		str	r3, [r7, #16]	@ tmp141, tmp
+ 193 00b6 0023     		movs	r3, #0	@ tmp142,
+ 194 00b8 7B61     		str	r3, [r7, #20]	@ tmp142, pllvco
+ 195 00ba 0223     		movs	r3, #2	@ tmp143,
+ 196 00bc FB60     		str	r3, [r7, #12]	@ tmp143, pllp
+ 197 00be 0023     		movs	r3, #0	@ tmp144,
+ 198 00c0 BB60     		str	r3, [r7, #8]	@ tmp144, pllsource
+ 199 00c2 0223     		movs	r3, #2	@ tmp145,
+ 200 00c4 7B60     		str	r3, [r7, #4]	@ tmp145, pllm
+ 289:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   
+ 290:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   /* Get SYSCLK source -------------------------------------------------------*/
+ 291:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   tmp = RCC->CFGR & RCC_CFGR_SWS;
+ 201              		.loc 1 291 0
+ 202 00c6 4FF46053 		mov	r3, #14336	@ D.7451,
+ 203 00ca C4F20203 		movt	r3, 16386	@ D.7451,
+ 204 00ce 9B68     		ldr	r3, [r3, #8]	@ D.7452, _7->CFGR
+ 205 00d0 03F00C03 		and	r3, r3, #12	@ tmp146, D.7452,
+ 206 00d4 3B61     		str	r3, [r7, #16]	@ tmp146, tmp
+ 292:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** 
+ 293:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   switch (tmp)
+ 207              		.loc 1 293 0
+ 208 00d6 3B69     		ldr	r3, [r7, #16]	@ tmp, tmp
+ 209 00d8 042B     		cmp	r3, #4	@ tmp,
+ 210 00da 0DD0     		beq	.L4	@,
+ 211 00dc 082B     		cmp	r3, #8	@ tmp,
+ 212 00de 15D0     		beq	.L5	@,
+ 213 00e0 002B     		cmp	r3, #0	@ tmp,
+ 214 00e2 63D1     		bne	.L10	@,
+ 294:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   {
+ 295:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****     case 0x00:  /* HSI used as system clock source */
+ 296:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****       SystemCoreClock = HSI_VALUE;
+ 215              		.loc 1 296 0
+ 216 00e4 40F20003 		movw	r3, #:lower16:SystemCoreClock	@ tmp148,
+ 217 00e8 C0F20003 		movt	r3, #:upper16:SystemCoreClock	@ tmp148,
+ 218 00ec 4FF41052 		mov	r2, #9216	@ tmp149,
+ 219 00f0 C0F2F402 		movt	r2, 244	@ tmp149,
+ 220 00f4 1A60     		str	r2, [r3]	@ tmp149, SystemCoreClock
+ 297:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****       break;
+ 221              		.loc 1 297 0
+ 222 00f6 63E0     		b	.L7	@
+ 223              	.L4:
+ 298:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****     case 0x04:  /* HSE used as system clock source */
+ 299:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****       SystemCoreClock = HSE_VALUE;
+ 224              		.loc 1 299 0
+ 225 00f8 40F20003 		movw	r3, #:lower16:SystemCoreClock	@ tmp150,
+ 226 00fc C0F20003 		movt	r3, #:upper16:SystemCoreClock	@ tmp150,
+ 227 0100 4FF49052 		mov	r2, #4608	@ tmp151,
+ 228 0104 C0F27A02 		movt	r2, 122	@ tmp151,
+ 229 0108 1A60     		str	r2, [r3]	@ tmp151, SystemCoreClock
+ 300:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****       break;
+ 230              		.loc 1 300 0
+ 231 010a 59E0     		b	.L7	@
+ 232              	.L5:
+ 301:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****     case 0x08:  /* PLL used as system clock source */
+ 302:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** 
+ 303:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****       /* PLL_VCO = (HSE_VALUE or HSI_VALUE / PLL_M) * PLL_N
+ 304:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****          SYSCLK = PLL_VCO / PLL_P
+ 305:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****          */    
+ 306:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****       pllsource = (RCC->PLLCFGR & RCC_PLLCFGR_PLLSRC) >> 22;
+ 233              		.loc 1 306 0
+ 234 010c 4FF46053 		mov	r3, #14336	@ D.7451,
+ 235 0110 C4F20203 		movt	r3, 16386	@ D.7451,
+ 236 0114 5B68     		ldr	r3, [r3, #4]	@ D.7452, _10->PLLCFGR
+ 237 0116 03F48003 		and	r3, r3, #4194304	@ D.7452, D.7452,
+ 238 011a 9B0D     		lsrs	r3, r3, #22	@ tmp152, D.7452,
+ 239 011c BB60     		str	r3, [r7, #8]	@ tmp152, pllsource
+ 307:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****       pllm = RCC->PLLCFGR & RCC_PLLCFGR_PLLM;
+ 240              		.loc 1 307 0
+ 241 011e 4FF46053 		mov	r3, #14336	@ D.7451,
+ 242 0122 C4F20203 		movt	r3, 16386	@ D.7451,
+ 243 0126 5B68     		ldr	r3, [r3, #4]	@ D.7452, _14->PLLCFGR
+ 244 0128 03F03F03 		and	r3, r3, #63	@ tmp153, D.7452,
+ 245 012c 7B60     		str	r3, [r7, #4]	@ tmp153, pllm
+ 308:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****       
+ 309:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****       if (pllsource != 0)
+ 246              		.loc 1 309 0
+ 247 012e BB68     		ldr	r3, [r7, #8]	@ tmp154, pllsource
+ 248 0130 002B     		cmp	r3, #0	@ tmp154,
+ 249 0132 13D0     		beq	.L8	@,
+ 310:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****       {
+ 311:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****         /* HSE used as PLL clock source */
+ 312:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****         pllvco = (HSE_VALUE / pllm) * ((RCC->PLLCFGR & RCC_PLLCFGR_PLLN) >> 6);
+ 250              		.loc 1 312 0
+ 251 0134 4FF49053 		mov	r3, #4608	@ tmp155,
+ 252 0138 C0F27A03 		movt	r3, 122	@ tmp155,
+ 253 013c 7A68     		ldr	r2, [r7, #4]	@ tmp156, pllm
+ 254 013e B3FBF2F2 		udiv	r2, r3, r2	@ D.7452, tmp155, tmp156
+ 255 0142 4FF46053 		mov	r3, #14336	@ D.7451,
+ 256 0146 C4F20203 		movt	r3, 16386	@ D.7451,
+ 257 014a 5968     		ldr	r1, [r3, #4]	@ D.7452, _18->PLLCFGR
+ 258 014c 47F6C073 		movw	r3, #32704	@ D.7452,
+ 259 0150 0B40     		ands	r3, r3, r1	@, D.7452, D.7452, D.7452
+ 260 0152 9B09     		lsrs	r3, r3, #6	@ D.7452, D.7452,
+ 261 0154 03FB02F3 		mul	r3, r3, r2	@ tmp157, D.7452, D.7452
+ 262 0158 7B61     		str	r3, [r7, #20]	@ tmp157, pllvco
+ 263 015a 12E0     		b	.L9	@
+ 264              	.L8:
+ 313:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****       }
+ 314:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****       else
+ 315:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****       {
+ 316:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****         /* HSI used as PLL clock source */
+ 317:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****         pllvco = (HSI_VALUE / pllm) * ((RCC->PLLCFGR & RCC_PLLCFGR_PLLN) >> 6);      
+ 265              		.loc 1 317 0
+ 266 015c 4FF41053 		mov	r3, #9216	@ tmp158,
+ 267 0160 C0F2F403 		movt	r3, 244	@ tmp158,
+ 268 0164 7A68     		ldr	r2, [r7, #4]	@ tmp159, pllm
+ 269 0166 B3FBF2F2 		udiv	r2, r3, r2	@ D.7452, tmp158, tmp159
+ 270 016a 4FF46053 		mov	r3, #14336	@ D.7451,
+ 271 016e C4F20203 		movt	r3, 16386	@ D.7451,
+ 272 0172 5968     		ldr	r1, [r3, #4]	@ D.7452, _24->PLLCFGR
+ 273 0174 47F6C073 		movw	r3, #32704	@ D.7452,
+ 274 0178 0B40     		ands	r3, r3, r1	@, D.7452, D.7452, D.7452
+ 275 017a 9B09     		lsrs	r3, r3, #6	@ D.7452, D.7452,
+ 276 017c 03FB02F3 		mul	r3, r3, r2	@ tmp160, D.7452, D.7452
+ 277 0180 7B61     		str	r3, [r7, #20]	@ tmp160, pllvco
+ 278              	.L9:
+ 318:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****       }
+ 319:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** 
+ 320:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****       pllp = (((RCC->PLLCFGR & RCC_PLLCFGR_PLLP) >>16) + 1 ) *2;
+ 279              		.loc 1 320 0
+ 280 0182 4FF46053 		mov	r3, #14336	@ D.7451,
+ 281 0186 C4F20203 		movt	r3, 16386	@ D.7451,
+ 282 018a 5B68     		ldr	r3, [r3, #4]	@ D.7452, _29->PLLCFGR
+ 283 018c 03F44033 		and	r3, r3, #196608	@ D.7452, D.7452,
+ 284 0190 1B0C     		lsrs	r3, r3, #16	@ D.7452, D.7452,
+ 285 0192 0133     		adds	r3, r3, #1	@ D.7452, D.7452,
+ 286 0194 5B00     		lsls	r3, r3, #1	@ tmp161, D.7452,
+ 287 0196 FB60     		str	r3, [r7, #12]	@ tmp161, pllp
+ 321:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****       SystemCoreClock = pllvco/pllp;
+ 288              		.loc 1 321 0
+ 289 0198 7A69     		ldr	r2, [r7, #20]	@ tmp162, pllvco
+ 290 019a FB68     		ldr	r3, [r7, #12]	@ tmp163, pllp
+ 291 019c B2FBF3F2 		udiv	r2, r2, r3	@ SystemCoreClock.0, tmp162, tmp163
+ 292 01a0 40F20003 		movw	r3, #:lower16:SystemCoreClock	@ tmp164,
+ 293 01a4 C0F20003 		movt	r3, #:upper16:SystemCoreClock	@ tmp164,
+ 294 01a8 1A60     		str	r2, [r3]	@ SystemCoreClock.0, SystemCoreClock
+ 322:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****       break;
+ 295              		.loc 1 322 0
+ 296 01aa 09E0     		b	.L7	@
+ 297              	.L10:
+ 323:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****     default:
+ 324:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****       SystemCoreClock = HSI_VALUE;
+ 298              		.loc 1 324 0
+ 299 01ac 40F20003 		movw	r3, #:lower16:SystemCoreClock	@ tmp165,
+ 300 01b0 C0F20003 		movt	r3, #:upper16:SystemCoreClock	@ tmp165,
+ 301 01b4 4FF41052 		mov	r2, #9216	@ tmp166,
+ 302 01b8 C0F2F402 		movt	r2, 244	@ tmp166,
+ 303 01bc 1A60     		str	r2, [r3]	@ tmp166, SystemCoreClock
+ 325:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****       break;
+ 304              		.loc 1 325 0
+ 305 01be 00BF     		nop
+ 306              	.L7:
+ 326:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   }
+ 327:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   /* Compute HCLK frequency --------------------------------------------------*/
+ 328:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   /* Get HCLK prescaler */
+ 329:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   tmp = AHBPrescTable[((RCC->CFGR & RCC_CFGR_HPRE) >> 4)];
+ 307              		.loc 1 329 0
+ 308 01c0 4FF46053 		mov	r3, #14336	@ D.7451,
+ 309 01c4 C4F20203 		movt	r3, 16386	@ D.7451,
+ 310 01c8 9B68     		ldr	r3, [r3, #8]	@ D.7452, _36->CFGR
+ 311 01ca 03F0F003 		and	r3, r3, #240	@ D.7452, D.7452,
+ 312 01ce 1A09     		lsrs	r2, r3, #4	@ D.7452, D.7452,
+ 313 01d0 40F20003 		movw	r3, #:lower16:AHBPrescTable	@ tmp167,
+ 314 01d4 C0F20003 		movt	r3, #:upper16:AHBPrescTable	@ tmp167,
+ 315 01d8 9B5C     		ldrb	r3, [r3, r2]	@ tmp169, AHBPrescTable
+ 316 01da DBB2     		uxtb	r3, r3	@ D.7453, tmp169
+ 317 01dc 3B61     		str	r3, [r7, #16]	@ D.7453, tmp
+ 330:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   /* HCLK frequency */
+ 331:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   SystemCoreClock >>= tmp;
+ 318              		.loc 1 331 0
+ 319 01de 40F20003 		movw	r3, #:lower16:SystemCoreClock	@ tmp170,
+ 320 01e2 C0F20003 		movt	r3, #:upper16:SystemCoreClock	@ tmp170,
+ 321 01e6 1A68     		ldr	r2, [r3]	@ SystemCoreClock.1, SystemCoreClock
+ 322 01e8 3B69     		ldr	r3, [r7, #16]	@ tmp.2, tmp
+ 323 01ea DA40     		lsrs	r2, r2, r3	@ SystemCoreClock.3, SystemCoreClock.1, tmp.2
+ 324 01ec 40F20003 		movw	r3, #:lower16:SystemCoreClock	@ tmp171,
+ 325 01f0 C0F20003 		movt	r3, #:upper16:SystemCoreClock	@ tmp171,
+ 326 01f4 1A60     		str	r2, [r3]	@ SystemCoreClock.3, SystemCoreClock
+ 332:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** }
+ 327              		.loc 1 332 0
+ 328 01f6 1C37     		adds	r7, r7, #28	@,,
+ 329 01f8 BD46     		mov	sp, r7	@,
+ 330              		@ sp needed	@
+ 331 01fa 5DF8047B 		ldr	r7, [sp], #4	@,
+ 332 01fe 7047     		bx	lr	@
+ 333              		.cfi_endproc
+ 334              	.LFE111:
+ 336              		.align	2
+ 337              		.thumb
+ 338              		.thumb_func
+ 340              	SetSysClock:
+ 341              	.LFB112:
+ 333:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** 
+ 334:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** /**
+ 335:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   * @brief  Configures the System clock source, PLL Multiplier and Divider factors, 
+ 336:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *         AHB/APBx prescalers and Flash settings
+ 337:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   * @Note   This function should be called only once the RCC clock configuration  
+ 338:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   *         is reset to the default reset state (done in SystemInit() function).   
+ 339:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   * @param  None
+ 340:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   * @retval None
+ 341:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   */
+ 342:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** static void SetSysClock(void)
+ 343:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** {
+ 342              		.loc 1 343 0
+ 343              		.cfi_startproc
+ 344              		@ args = 0, pretend = 0, frame = 8
+ 345              		@ frame_needed = 1, uses_anonymous_args = 0
+ 346              		@ link register save eliminated.
+ 347 0200 80B4     		push	{r7}	@
+ 348              		.cfi_def_cfa_offset 4
+ 349              		.cfi_offset 7, -4
+ 350 0202 83B0     		sub	sp, sp, #12	@,,
+ 351              		.cfi_def_cfa_offset 16
+ 352 0204 00AF     		add	r7, sp, #0	@,,
+ 353              		.cfi_def_cfa_register 7
+ 344:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** /******************************************************************************/
+ 345:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** /*            PLL (clocked by HSE) used as System clock source                */
+ 346:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** /******************************************************************************/
+ 347:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   __IO uint32_t StartUpCounter = 0, HSEStatus = 0;
+ 354              		.loc 1 347 0
+ 355 0206 0023     		movs	r3, #0	@ tmp164,
+ 356 0208 7B60     		str	r3, [r7, #4]	@ tmp164, StartUpCounter
+ 357 020a 0023     		movs	r3, #0	@ tmp165,
+ 358 020c 3B60     		str	r3, [r7]	@ tmp165, HSEStatus
+ 348:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   
+ 349:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   /* Enable HSE */
+ 350:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   RCC->CR |= ((uint32_t)RCC_CR_HSEON);
+ 359              		.loc 1 350 0
+ 360 020e 4FF46053 		mov	r3, #14336	@ D.7454,
+ 361 0212 C4F20203 		movt	r3, 16386	@ D.7454,
+ 362 0216 4FF46052 		mov	r2, #14336	@ D.7454,
+ 363 021a C4F20202 		movt	r2, 16386	@ D.7454,
+ 364 021e 1268     		ldr	r2, [r2]	@ D.7455, _2->CR
+ 365 0220 42F48032 		orr	r2, r2, #65536	@ D.7455, D.7455,
+ 366 0224 1A60     		str	r2, [r3]	@ D.7455, _1->CR
+ 367              	.L13:
+ 351:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****  
+ 352:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   /* Wait till HSE is ready and if Time out is reached exit */
+ 353:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   do
+ 354:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   {
+ 355:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****     HSEStatus = RCC->CR & RCC_CR_HSERDY;
+ 368              		.loc 1 355 0 discriminator 1
+ 369 0226 4FF46053 		mov	r3, #14336	@ D.7454,
+ 370 022a C4F20203 		movt	r3, 16386	@ D.7454,
+ 371 022e 1B68     		ldr	r3, [r3]	@ D.7455, _5->CR
+ 372 0230 03F40033 		and	r3, r3, #131072	@ HSEStatus.4, D.7455,
+ 373 0234 3B60     		str	r3, [r7]	@ HSEStatus.4, HSEStatus
+ 356:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****     StartUpCounter++;
+ 374              		.loc 1 356 0 discriminator 1
+ 375 0236 7B68     		ldr	r3, [r7, #4]	@ StartUpCounter.5, StartUpCounter
+ 376 0238 0133     		adds	r3, r3, #1	@ StartUpCounter.6, StartUpCounter.5,
+ 377 023a 7B60     		str	r3, [r7, #4]	@ StartUpCounter.6, StartUpCounter
+ 357:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   } while((HSEStatus == 0) && (StartUpCounter != HSE_STARTUP_TIMEOUT));
+ 378              		.loc 1 357 0 discriminator 1
+ 379 023c 3B68     		ldr	r3, [r7]	@ HSEStatus.7, HSEStatus
+ 380 023e 002B     		cmp	r3, #0	@ HSEStatus.7,
+ 381 0240 03D1     		bne	.L12	@,
+ 382 0242 7B68     		ldr	r3, [r7, #4]	@ StartUpCounter.8, StartUpCounter
+ 383 0244 B3F5A06F 		cmp	r3, #1280	@ StartUpCounter.8,
+ 384 0248 EDD1     		bne	.L13	@,
+ 385              	.L12:
+ 358:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** 
+ 359:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   if ((RCC->CR & RCC_CR_HSERDY) != RESET)
+ 386              		.loc 1 359 0
+ 387 024a 4FF46053 		mov	r3, #14336	@ D.7454,
+ 388 024e C4F20203 		movt	r3, 16386	@ D.7454,
+ 389 0252 1B68     		ldr	r3, [r3]	@ D.7455, _12->CR
+ 390 0254 03F40033 		and	r3, r3, #131072	@ D.7455, D.7455,
+ 391 0258 002B     		cmp	r3, #0	@ D.7455,
+ 392 025a 02D0     		beq	.L14	@,
+ 360:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   {
+ 361:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****     HSEStatus = (uint32_t)0x01;
+ 393              		.loc 1 361 0
+ 394 025c 0123     		movs	r3, #1	@ tmp166,
+ 395 025e 3B60     		str	r3, [r7]	@ tmp166, HSEStatus
+ 396 0260 01E0     		b	.L15	@
+ 397              	.L14:
+ 362:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   }
+ 363:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   else
+ 364:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   {
+ 365:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****     HSEStatus = (uint32_t)0x00;
+ 398              		.loc 1 365 0
+ 399 0262 0023     		movs	r3, #0	@ tmp167,
+ 400 0264 3B60     		str	r3, [r7]	@ tmp167, HSEStatus
+ 401              	.L15:
+ 366:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   }
+ 367:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** 
+ 368:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   if (HSEStatus == (uint32_t)0x01)
+ 402              		.loc 1 368 0
+ 403 0266 3B68     		ldr	r3, [r7]	@ HSEStatus.9, HSEStatus
+ 404 0268 012B     		cmp	r3, #1	@ HSEStatus.9,
+ 405 026a 40F08280 		bne	.L11	@,
+ 369:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   {
+ 370:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****     /* Select regulator voltage output Scale 1 mode, System frequency up to 168 MHz */
+ 371:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****     RCC->APB1ENR |= RCC_APB1ENR_PWREN;
+ 406              		.loc 1 371 0
+ 407 026e 4FF46053 		mov	r3, #14336	@ D.7454,
+ 408 0272 C4F20203 		movt	r3, 16386	@ D.7454,
+ 409 0276 4FF46052 		mov	r2, #14336	@ D.7454,
+ 410 027a C4F20202 		movt	r2, 16386	@ D.7454,
+ 411 027e 126C     		ldr	r2, [r2, #64]	@ D.7455, _17->APB1ENR
+ 412 0280 42F08052 		orr	r2, r2, #268435456	@ D.7455, D.7455,
+ 413 0284 1A64     		str	r2, [r3, #64]	@ D.7455, _16->APB1ENR
+ 372:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****     PWR->CR |= PWR_CR_VOS;
+ 414              		.loc 1 372 0
+ 415 0286 4FF4E043 		mov	r3, #28672	@ D.7456,
+ 416 028a C4F20003 		movt	r3, 16384	@ D.7456,
+ 417 028e 4FF4E042 		mov	r2, #28672	@ D.7456,
+ 418 0292 C4F20002 		movt	r2, 16384	@ D.7456,
+ 419 0296 1268     		ldr	r2, [r2]	@ D.7455, _21->CR
+ 420 0298 42F48042 		orr	r2, r2, #16384	@ D.7455, D.7455,
+ 421 029c 1A60     		str	r2, [r3]	@ D.7455, _20->CR
+ 373:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** 
+ 374:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****     /* HCLK = SYSCLK / 1*/
+ 375:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****     RCC->CFGR |= RCC_CFGR_HPRE_DIV1;
+ 422              		.loc 1 375 0
+ 423 029e 4FF46053 		mov	r3, #14336	@ D.7454,
+ 424 02a2 C4F20203 		movt	r3, 16386	@ D.7454,
+ 425 02a6 4FF46052 		mov	r2, #14336	@ D.7454,
+ 426 02aa C4F20202 		movt	r2, 16386	@ D.7454,
+ 427 02ae 9268     		ldr	r2, [r2, #8]	@ D.7455, _25->CFGR
+ 428 02b0 9A60     		str	r2, [r3, #8]	@ D.7455, _24->CFGR
+ 376:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****       
+ 377:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****     /* PCLK2 = HCLK / 2*/
+ 378:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****     RCC->CFGR |= RCC_CFGR_PPRE2_DIV2;
+ 429              		.loc 1 378 0
+ 430 02b2 4FF46053 		mov	r3, #14336	@ D.7454,
+ 431 02b6 C4F20203 		movt	r3, 16386	@ D.7454,
+ 432 02ba 4FF46052 		mov	r2, #14336	@ D.7454,
+ 433 02be C4F20202 		movt	r2, 16386	@ D.7454,
+ 434 02c2 9268     		ldr	r2, [r2, #8]	@ D.7455, _28->CFGR
+ 435 02c4 42F40042 		orr	r2, r2, #32768	@ D.7455, D.7455,
+ 436 02c8 9A60     		str	r2, [r3, #8]	@ D.7455, _27->CFGR
+ 379:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****     
+ 380:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****     /* PCLK1 = HCLK / 4*/
+ 381:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****     RCC->CFGR |= RCC_CFGR_PPRE1_DIV4;
+ 437              		.loc 1 381 0
+ 438 02ca 4FF46053 		mov	r3, #14336	@ D.7454,
+ 439 02ce C4F20203 		movt	r3, 16386	@ D.7454,
+ 440 02d2 4FF46052 		mov	r2, #14336	@ D.7454,
+ 441 02d6 C4F20202 		movt	r2, 16386	@ D.7454,
+ 442 02da 9268     		ldr	r2, [r2, #8]	@ D.7455, _32->CFGR
+ 443 02dc 42F4A052 		orr	r2, r2, #5120	@ D.7455, D.7455,
+ 444 02e0 9A60     		str	r2, [r3, #8]	@ D.7455, _31->CFGR
+ 382:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** 
+ 383:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****     /* Configure the main PLL */
+ 384:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****     RCC->PLLCFGR = PLL_M | (PLL_N << 6) | (((PLL_P >> 1) -1) << 16) |
+ 445              		.loc 1 384 0
+ 446 02e2 4FF46053 		mov	r3, #14336	@ D.7454,
+ 447 02e6 C4F20203 		movt	r3, 16386	@ D.7454,
+ 448 02ea 45F20842 		movw	r2, #21512	@ tmp168,
+ 449 02ee C0F24072 		movt	r2, 1856	@ tmp168,
+ 450 02f2 5A60     		str	r2, [r3, #4]	@ tmp168, _35->PLLCFGR
+ 385:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****                    (RCC_PLLCFGR_PLLSRC_HSE) | (PLL_Q << 24);
+ 386:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** 
+ 387:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****     /* Enable the main PLL */
+ 388:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****     RCC->CR |= RCC_CR_PLLON;
+ 451              		.loc 1 388 0
+ 452 02f4 4FF46053 		mov	r3, #14336	@ D.7454,
+ 453 02f8 C4F20203 		movt	r3, 16386	@ D.7454,
+ 454 02fc 4FF46052 		mov	r2, #14336	@ D.7454,
+ 455 0300 C4F20202 		movt	r2, 16386	@ D.7454,
+ 456 0304 1268     		ldr	r2, [r2]	@ D.7455, _37->CR
+ 457 0306 42F08072 		orr	r2, r2, #16777216	@ D.7455, D.7455,
+ 458 030a 1A60     		str	r2, [r3]	@ D.7455, _36->CR
+ 389:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** 
+ 390:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****     /* Wait till the main PLL is ready */
+ 391:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****     while((RCC->CR & RCC_CR_PLLRDY) == 0)
+ 459              		.loc 1 391 0
+ 460 030c 00BF     		nop
+ 461              	.L17:
+ 462              		.loc 1 391 0 is_stmt 0 discriminator 1
+ 463 030e 4FF46053 		mov	r3, #14336	@ D.7454,
+ 464 0312 C4F20203 		movt	r3, 16386	@ D.7454,
+ 465 0316 1B68     		ldr	r3, [r3]	@ D.7455, _40->CR
+ 466 0318 03F00073 		and	r3, r3, #33554432	@ D.7455, D.7455,
+ 467 031c 002B     		cmp	r3, #0	@ D.7455,
+ 468 031e F6D0     		beq	.L17	@,
+ 392:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****     {
+ 393:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****     }
+ 394:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****    
+ 395:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****     /* Configure Flash prefetch, Instruction cache, Data cache and wait state */
+ 396:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****     FLASH->ACR = FLASH_ACR_ICEN |FLASH_ACR_DCEN |FLASH_ACR_LATENCY_5WS;
+ 469              		.loc 1 396 0 is_stmt 1
+ 470 0320 4FF47053 		mov	r3, #15360	@ D.7457,
+ 471 0324 C4F20203 		movt	r3, 16386	@ D.7457,
+ 472 0328 40F20562 		movw	r2, #1541	@ tmp169,
+ 473 032c 1A60     		str	r2, [r3]	@ tmp169, _43->ACR
+ 397:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** 
+ 398:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****     /* Select the main PLL as system clock source */
+ 399:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****     RCC->CFGR &= (uint32_t)((uint32_t)~(RCC_CFGR_SW));
+ 474              		.loc 1 399 0
+ 475 032e 4FF46053 		mov	r3, #14336	@ D.7454,
+ 476 0332 C4F20203 		movt	r3, 16386	@ D.7454,
+ 477 0336 4FF46052 		mov	r2, #14336	@ D.7454,
+ 478 033a C4F20202 		movt	r2, 16386	@ D.7454,
+ 479 033e 9268     		ldr	r2, [r2, #8]	@ D.7455, _45->CFGR
+ 480 0340 22F00302 		bic	r2, r2, #3	@ D.7455, D.7455,
+ 481 0344 9A60     		str	r2, [r3, #8]	@ D.7455, _44->CFGR
+ 400:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****     RCC->CFGR |= RCC_CFGR_SW_PLL;
+ 482              		.loc 1 400 0
+ 483 0346 4FF46053 		mov	r3, #14336	@ D.7454,
+ 484 034a C4F20203 		movt	r3, 16386	@ D.7454,
+ 485 034e 4FF46052 		mov	r2, #14336	@ D.7454,
+ 486 0352 C4F20202 		movt	r2, 16386	@ D.7454,
+ 487 0356 9268     		ldr	r2, [r2, #8]	@ D.7455, _49->CFGR
+ 488 0358 42F00202 		orr	r2, r2, #2	@ D.7455, D.7455,
+ 489 035c 9A60     		str	r2, [r3, #8]	@ D.7455, _48->CFGR
+ 401:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** 
+ 402:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****     /* Wait till the main PLL is used as system clock source */
+ 403:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****     while ((RCC->CFGR & (uint32_t)RCC_CFGR_SWS ) != RCC_CFGR_SWS_PLL);
+ 490              		.loc 1 403 0
+ 491 035e 00BF     		nop
+ 492              	.L18:
+ 493              		.loc 1 403 0 is_stmt 0 discriminator 1
+ 494 0360 4FF46053 		mov	r3, #14336	@ D.7454,
+ 495 0364 C4F20203 		movt	r3, 16386	@ D.7454,
+ 496 0368 9B68     		ldr	r3, [r3, #8]	@ D.7455, _52->CFGR
+ 497 036a 03F00C03 		and	r3, r3, #12	@ D.7455, D.7455,
+ 498 036e 082B     		cmp	r3, #8	@ D.7455,
+ 499 0370 F6D1     		bne	.L18	@,
+ 500              	.L11:
+ 404:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****     {
+ 405:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****     }
+ 406:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   }
+ 407:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   else
+ 408:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   { /* If HSE fails to start-up, the application will have wrong clock
+ 409:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****          configuration. User can add here some code to deal with this error */
+ 410:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c ****   }
+ 411:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** 
+ 412:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/system_stm32f4xx.c **** }
+ 501              		.loc 1 412 0 is_stmt 1
+ 502 0372 0C37     		adds	r7, r7, #12	@,,
+ 503 0374 BD46     		mov	sp, r7	@,
+ 504              		@ sp needed	@
+ 505 0376 5DF8047B 		ldr	r7, [sp], #4	@,
+ 506 037a 7047     		bx	lr	@
+ 507              		.cfi_endproc
+ 508              	.LFE112:
+ 510              	.Letext0:
+ 511              		.file 2 "/opt/toolchains/eabi/arm-2014.05/arm-none-eabi/include/stdint.h"
+ 512              		.file 3 "/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/core/core_cm4
+ 513              		.file 4 "/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/stm32f4xx.h"
+DEFINED SYMBOLS
+                            *ABS*:00000000 system_stm32f4xx.c
+     /tmp/ccR6SbQm.s:68     .data:00000000 SystemCoreClock
+     /tmp/ccR6SbQm.s:65     .data:00000000 $d
+     /tmp/ccR6SbQm.s:74     .data:00000004 AHBPrescTable
+     /tmp/ccR6SbQm.s:92     .text:00000000 $t
+     /tmp/ccR6SbQm.s:97     .text:00000000 SystemInit
+     /tmp/ccR6SbQm.s:340    .text:00000200 SetSysClock
+     /tmp/ccR6SbQm.s:176    .text:000000ac SystemCoreClockUpdate
+                     .debug_frame:00000010 $d
+
+NO UNDEFINED SYMBOLS

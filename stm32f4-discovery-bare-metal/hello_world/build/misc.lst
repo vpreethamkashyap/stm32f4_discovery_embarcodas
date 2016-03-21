@@ -1,0 +1,606 @@
+   1              		.syntax unified
+   2              		.cpu cortex-m4
+   3              		.eabi_attribute 27, 3	@ Tag_ABI_HardFP_use
+   4              		.eabi_attribute 28, 1	@ Tag_ABI_VFP_args
+   5              		.fpu vfp
+   6              		.eabi_attribute 20, 1	@ Tag_ABI_FP_denormal
+   7              		.eabi_attribute 21, 1	@ Tag_ABI_FP_exceptions
+   8              		.eabi_attribute 23, 3	@ Tag_ABI_FP_number_model
+   9              		.eabi_attribute 24, 1	@ Tag_ABI_align8_needed
+  10              		.eabi_attribute 25, 1	@ Tag_ABI_align8_preserved
+  11              		.eabi_attribute 26, 1	@ Tag_ABI_enum_size
+  12              		.eabi_attribute 30, 6	@ Tag_ABI_optimization_goals
+  13              		.eabi_attribute 34, 1	@ Tag_CPU_unaligned_access
+  14              		.eabi_attribute 18, 4	@ Tag_ABI_PCS_wchar_t
+  15              		.file	"misc.c"
+  16              	@ GNU C (Sourcery CodeBench Lite 2014.05-28) version 4.8.3 20140320 (prerelease) (arm-none-eabi)
+  17              	@	compiled by GNU C version 4.7.2, GMP version 5.0.5, MPFR version 3.1.1-p2, MPC version 1.0.1
+  18              	@ GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+  19              	@ options passed: 
+  20              	@ -I /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world
+  21              	@ -I /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src
+  22              	@ -I /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/project
+  23              	@ -I /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/core
+  24              	@ -I /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device
+  25              	@ -imultilib thumb2
+  26              	@ -iprefix /opt/toolchains/eabi/arm-2014.05/bin/../lib/gcc/arm-none-eabi/4.8.3/
+  27              	@ -isysroot /opt/toolchains/eabi/arm-2014.05/bin/../arm-none-eabi
+  28              	@ -MMD /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/misc.d
+  29              	@ -MF /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/.dep/misc.o.d
+  30              	@ -MP
+  31              	@ -MQ /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/misc.o
+  32              	@ -D__USES_INITFINI__ -D USE_STDPERIPH_DRIVER -D STM32F4XX
+  33              	@ -D __CS_SOURCERYGXX_MAJ__=2014 -D __CS_SOURCERYGXX_MIN__=5
+  34              	@ -D __CS_SOURCERYGXX_REV__=28
+  35              	@ /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c
+  36              	@ -mcpu=cortex-m4 -mtune=cortex-m4 -mfloat-abi=hard -mthumb -mapcs-frame
+  37              	@ -auxbase-strip /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/misc.o
+  38              	@ -g -O0 -Wall -Wstrict-prototypes -fverbose-asm
+  39              	@ options enabled:  -faggressive-loop-optimizations -fauto-inc-dec
+  40              	@ -fbranch-count-reg -fcommon -fdelete-null-pointer-checks -fdwarf2-cfi-asm
+  41              	@ -fearly-inlining -feliminate-unused-debug-types -ffunction-cse -fgcse-lm
+  42              	@ -fgnu-runtime -fident -finline-atomics -fira-hoist-pressure
+  43              	@ -fira-share-save-slots -fira-share-spill-slots -fivopts
+  44              	@ -fkeep-static-consts -fleading-underscore -fmath-errno
+  45              	@ -fmerge-debug-strings -fmove-loop-invariants -fpeephole
+  46              	@ -fprefetch-loop-arrays -freg-struct-return
+  47              	@ -fsched-critical-path-heuristic -fsched-dep-count-heuristic
+  48              	@ -fsched-group-heuristic -fsched-interblock -fsched-last-insn-heuristic
+  49              	@ -fsched-rank-heuristic -fsched-spec -fsched-spec-insn-heuristic
+  50              	@ -fsched-stalled-insns-dep -fshow-column -fsigned-zeros
+  51              	@ -fsplit-ivs-in-unroller -fstrict-volatile-bitfields -fsync-libcalls
+  52              	@ -ftrapping-math -ftree-coalesce-vars -ftree-cselim -ftree-forwprop
+  53              	@ -ftree-loop-if-convert -ftree-loop-im -ftree-loop-ivcanon
+  54              	@ -ftree-loop-optimize -ftree-parallelize-loops= -ftree-phiprop -ftree-pta
+  55              	@ -ftree-reassoc -ftree-scev-cprop -ftree-slp-vectorize
+  56              	@ -ftree-vect-loop-version -funit-at-a-time -fverbose-asm
+  57              	@ -fzero-initialized-in-bss -mlittle-endian -msched-prolog -mthumb
+  58              	@ -munaligned-access -mvectorize-with-neon-quad
+  59              	
+  60              		.text
+  61              	.Ltext0:
+  62              		.cfi_sections	.debug_frame
+  63              		.align	2
+  64              		.global	NVIC_PriorityGroupConfig
+  65              		.thumb
+  66              		.thumb_func
+  68              	NVIC_PriorityGroupConfig:
+  69              	.LFB110:
+  70              		.file 1 "/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c
+   1:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c **** /**
+   2:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   ******************************************************************************
+   3:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   * @file    misc.c
+   4:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   * @author  MCD Application Team
+   5:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   * @version V1.0.0
+   6:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   * @date    30-September-2011
+   7:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   * @brief   This file provides all the miscellaneous firmware functions (add-on
+   8:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   *          to CMSIS functions).
+   9:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   *          
+  10:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   *  @verbatim   
+  11:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   *                               
+  12:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   *          ===================================================================      
+  13:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   *                        How to configure Interrupts using driver 
+  14:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   *          ===================================================================      
+  15:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   * 
+  16:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   *            This section provide functions allowing to configure the NVIC interrupts (IRQ).
+  17:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   *            The Cortex-M4 exceptions are managed by CMSIS functions.
+  18:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   *
+  19:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   *            1. Configure the NVIC Priority Grouping using NVIC_PriorityGroupConfig()
+  20:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   *                function according to the following table.
+  21:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****  
+  22:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   *  The table below gives the allowed values of the pre-emption priority and subpriority according
+  23:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   *  to the Priority Grouping configuration performed by NVIC_PriorityGroupConfig function
+  24:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   *    ============================================================================================
+  25:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   *      NVIC_PriorityGroup   | NVIC_IRQChannelPreemptionPriority | NVIC_IRQChannelSubPriority  |  
+  26:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   *    ============================================================================================
+  27:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   *     NVIC_PriorityGroup_0  |                0                  |            0-15             | 0
+  28:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   *                           |                                   |                             | 4
+  29:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   *    --------------------------------------------------------------------------------------------
+  30:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   *     NVIC_PriorityGroup_1  |                0-1                |            0-7              | 1
+  31:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   *                           |                                   |                             | 3
+  32:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   *    --------------------------------------------------------------------------------------------
+  33:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   *     NVIC_PriorityGroup_2  |                0-3                |            0-3              | 2
+  34:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   *                           |                                   |                             | 2
+  35:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   *    --------------------------------------------------------------------------------------------
+  36:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   *     NVIC_PriorityGroup_3  |                0-7                |            0-1              | 3
+  37:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   *                           |                                   |                             | 1
+  38:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   *    --------------------------------------------------------------------------------------------
+  39:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   *     NVIC_PriorityGroup_4  |                0-15               |            0                | 4
+  40:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   *                           |                                   |                             | 0
+  41:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   *    ============================================================================================
+  42:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   *
+  43:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   *            2. Enable and Configure the priority of the selected IRQ Channels using NVIC_Init() 
+  44:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   *
+  45:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   * @note  When the NVIC_PriorityGroup_0 is selected, IRQ pre-emption is no more possible. 
+  46:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   *        The pending IRQ priority will be managed only by the subpriority.
+  47:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   *
+  48:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   * @note  IRQ priority order (sorted by highest to lowest priority):
+  49:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   *         - Lowest pre-emption priority
+  50:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   *         - Lowest subpriority
+  51:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   *         - Lowest hardware priority (IRQ number)
+  52:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   *
+  53:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   *  @endverbatim
+  54:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   *
+  55:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   ******************************************************************************
+  56:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   * @attention
+  57:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   *
+  58:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   * THE PRESENT FIRMWARE WHICH IS FOR GUIDANCE ONLY AIMS AT PROVIDING CUSTOMERS
+  59:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   * WITH CODING INFORMATION REGARDING THEIR PRODUCTS IN ORDER FOR THEM TO SAVE
+  60:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   * TIME. AS A RESULT, STMICROELECTRONICS SHALL NOT BE HELD LIABLE FOR ANY
+  61:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   * DIRECT, INDIRECT OR CONSEQUENTIAL DAMAGES WITH RESPECT TO ANY CLAIMS ARISING
+  62:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   * FROM THE CONTENT OF SUCH FIRMWARE AND/OR THE USE MADE BY CUSTOMERS OF THE
+  63:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   * CODING INFORMATION CONTAINED HEREIN IN CONNECTION WITH THEIR PRODUCTS.
+  64:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   *
+  65:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   * <h2><center>&copy; COPYRIGHT 2011 STMicroelectronics</center></h2>
+  66:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   ******************************************************************************
+  67:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   */
+  68:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c **** 
+  69:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c **** /* Includes ------------------------------------------------------------------*/
+  70:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c **** #include "misc.h"
+  71:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c **** #include "stm32f4xx_conf.h"
+  72:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c **** 
+  73:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c **** /** @addtogroup STM32F4xx_StdPeriph_Driver
+  74:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   * @{
+  75:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   */
+  76:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c **** 
+  77:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c **** /** @defgroup MISC 
+  78:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   * @brief MISC driver modules
+  79:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   * @{
+  80:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   */
+  81:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c **** 
+  82:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c **** /* Private typedef -----------------------------------------------------------*/
+  83:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c **** /* Private define ------------------------------------------------------------*/
+  84:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c **** #define AIRCR_VECTKEY_MASK    ((uint32_t)0x05FA0000)
+  85:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c **** 
+  86:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c **** /* Private macro -------------------------------------------------------------*/
+  87:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c **** /* Private variables ---------------------------------------------------------*/
+  88:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c **** /* Private function prototypes -----------------------------------------------*/
+  89:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c **** /* Private functions ---------------------------------------------------------*/
+  90:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c **** 
+  91:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c **** /** @defgroup MISC_Private_Functions
+  92:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   * @{
+  93:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   */
+  94:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c **** 
+  95:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c **** /**
+  96:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   * @brief  Configures the priority grouping: pre-emption priority and subpriority.
+  97:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   * @param  NVIC_PriorityGroup: specifies the priority grouping bits length. 
+  98:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   *   This parameter can be one of the following values:
+  99:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   *     @arg NVIC_PriorityGroup_0: 0 bits for pre-emption priority
+ 100:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   *                                4 bits for subpriority
+ 101:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   *     @arg NVIC_PriorityGroup_1: 1 bits for pre-emption priority
+ 102:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   *                                3 bits for subpriority
+ 103:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   *     @arg NVIC_PriorityGroup_2: 2 bits for pre-emption priority
+ 104:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   *                                2 bits for subpriority
+ 105:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   *     @arg NVIC_PriorityGroup_3: 3 bits for pre-emption priority
+ 106:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   *                                1 bits for subpriority
+ 107:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   *     @arg NVIC_PriorityGroup_4: 4 bits for pre-emption priority
+ 108:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   *                                0 bits for subpriority
+ 109:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   * @note   When the NVIC_PriorityGroup_0 is selected, IRQ pre-emption is no more possible. 
+ 110:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   *         The pending IRQ priority will be managed only by the subpriority. 
+ 111:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   * @retval None
+ 112:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   */
+ 113:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c **** void NVIC_PriorityGroupConfig(uint32_t NVIC_PriorityGroup)
+ 114:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c **** {
+  71              		.loc 1 114 0
+  72              		.cfi_startproc
+  73              		@ args = 0, pretend = 0, frame = 8
+  74              		@ frame_needed = 1, uses_anonymous_args = 0
+  75              		@ link register save eliminated.
+  76 0000 80B4     		push	{r7}	@
+  77              		.cfi_def_cfa_offset 4
+  78              		.cfi_offset 7, -4
+  79 0002 83B0     		sub	sp, sp, #12	@,,
+  80              		.cfi_def_cfa_offset 16
+  81 0004 00AF     		add	r7, sp, #0	@,,
+  82              		.cfi_def_cfa_register 7
+  83 0006 7860     		str	r0, [r7, #4]	@ NVIC_PriorityGroup, NVIC_PriorityGroup
+ 115:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   /* Check the parameters */
+ 116:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   assert_param(IS_NVIC_PRIORITY_GROUP(NVIC_PriorityGroup));
+ 117:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   
+ 118:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   /* Set the PRIGROUP[10:8] bits according to NVIC_PriorityGroup value */
+ 119:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   SCB->AIRCR = AIRCR_VECTKEY_MASK | NVIC_PriorityGroup;
+  84              		.loc 1 119 0
+  85 0008 4FF46D43 		mov	r3, #60672	@ D.7389,
+  86 000c CEF20003 		movt	r3, 57344	@ D.7389,
+  87 0010 7A68     		ldr	r2, [r7, #4]	@ tmp112, NVIC_PriorityGroup
+  88 0012 42F0BF62 		orr	r2, r2, #100139008	@ D.7390, tmp112,
+  89 0016 42F40032 		orr	r2, r2, #131072	@ D.7390, D.7390,
+  90 001a DA60     		str	r2, [r3, #12]	@ D.7390, _1->AIRCR
+ 120:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c **** }
+  91              		.loc 1 120 0
+  92 001c 0C37     		adds	r7, r7, #12	@,,
+  93 001e BD46     		mov	sp, r7	@,
+  94              		@ sp needed	@
+  95 0020 5DF8047B 		ldr	r7, [sp], #4	@,
+  96 0024 7047     		bx	lr	@
+  97              		.cfi_endproc
+  98              	.LFE110:
+ 100 0026 00BF     		.align	2
+ 101              		.global	NVIC_Init
+ 102              		.thumb
+ 103              		.thumb_func
+ 105              	NVIC_Init:
+ 106              	.LFB111:
+ 121:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c **** 
+ 122:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c **** /**
+ 123:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   * @brief  Initializes the NVIC peripheral according to the specified
+ 124:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   *         parameters in the NVIC_InitStruct.
+ 125:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   * @note   To configure interrupts priority correctly, the NVIC_PriorityGroupConfig()
+ 126:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   *         function should be called before. 
+ 127:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   * @param  NVIC_InitStruct: pointer to a NVIC_InitTypeDef structure that contains
+ 128:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   *         the configuration information for the specified NVIC peripheral.
+ 129:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   * @retval None
+ 130:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   */
+ 131:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c **** void NVIC_Init(NVIC_InitTypeDef* NVIC_InitStruct)
+ 132:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c **** {
+ 107              		.loc 1 132 0
+ 108              		.cfi_startproc
+ 109              		@ args = 0, pretend = 0, frame = 16
+ 110              		@ frame_needed = 1, uses_anonymous_args = 0
+ 111              		@ link register save eliminated.
+ 112 0028 80B4     		push	{r7}	@
+ 113              		.cfi_def_cfa_offset 4
+ 114              		.cfi_offset 7, -4
+ 115 002a 85B0     		sub	sp, sp, #20	@,,
+ 116              		.cfi_def_cfa_offset 24
+ 117 002c 00AF     		add	r7, sp, #0	@,,
+ 118              		.cfi_def_cfa_register 7
+ 119 002e 7860     		str	r0, [r7, #4]	@ NVIC_InitStruct, NVIC_InitStruct
+ 133:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   uint8_t tmppriority = 0x00, tmppre = 0x00, tmpsub = 0x0F;
+ 120              		.loc 1 133 0
+ 121 0030 0023     		movs	r3, #0	@ tmp144,
+ 122 0032 FB73     		strb	r3, [r7, #15]	@ tmp145, tmppriority
+ 123 0034 0023     		movs	r3, #0	@ tmp146,
+ 124 0036 BB73     		strb	r3, [r7, #14]	@ tmp147, tmppre
+ 125 0038 0F23     		movs	r3, #15	@ tmp148,
+ 126 003a 7B73     		strb	r3, [r7, #13]	@ tmp149, tmpsub
+ 134:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   
+ 135:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   /* Check the parameters */
+ 136:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   assert_param(IS_FUNCTIONAL_STATE(NVIC_InitStruct->NVIC_IRQChannelCmd));
+ 137:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   assert_param(IS_NVIC_PREEMPTION_PRIORITY(NVIC_InitStruct->NVIC_IRQChannelPreemptionPriority));  
+ 138:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   assert_param(IS_NVIC_SUB_PRIORITY(NVIC_InitStruct->NVIC_IRQChannelSubPriority));
+ 139:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****     
+ 140:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   if (NVIC_InitStruct->NVIC_IRQChannelCmd != DISABLE)
+ 127              		.loc 1 140 0
+ 128 003c 7B68     		ldr	r3, [r7, #4]	@ tmp150, NVIC_InitStruct
+ 129 003e DB78     		ldrb	r3, [r3, #3]	@ zero_extendqisi2	@ D.7391, NVIC_InitStruct_4(D)->NVIC_IRQChannelCmd
+ 130 0040 002B     		cmp	r3, #0	@ D.7391,
+ 131 0042 40D0     		beq	.L3	@,
+ 141:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   {
+ 142:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****     /* Compute the Corresponding IRQ Priority --------------------------------*/    
+ 143:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****     tmppriority = (0x700 - ((SCB->AIRCR) & (uint32_t)0x700))>> 0x08;
+ 132              		.loc 1 143 0
+ 133 0044 4FF46D43 		mov	r3, #60672	@ D.7392,
+ 134 0048 CEF20003 		movt	r3, 57344	@ D.7392,
+ 135 004c DB68     		ldr	r3, [r3, #12]	@ D.7393, _6->AIRCR
+ 136 004e DB43     		mvns	r3, r3	@ D.7393, D.7393
+ 137 0050 03F4E063 		and	r3, r3, #1792	@ D.7393, D.7393,
+ 138 0054 1B0A     		lsrs	r3, r3, #8	@ D.7393, D.7393,
+ 139 0056 FB73     		strb	r3, [r7, #15]	@ tmp151, tmppriority
+ 144:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****     tmppre = (0x4 - tmppriority);
+ 140              		.loc 1 144 0
+ 141 0058 FB7B     		ldrb	r3, [r7, #15]	@ tmp152, tmppriority
+ 142 005a C3F10403 		rsb	r3, r3, #4	@ tmp153, tmp152,
+ 143 005e BB73     		strb	r3, [r7, #14]	@ tmp154, tmppre
+ 145:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****     tmpsub = tmpsub >> tmppriority;
+ 144              		.loc 1 145 0
+ 145 0060 7A7B     		ldrb	r2, [r7, #13]	@ zero_extendqisi2	@ D.7394, tmpsub
+ 146 0062 FB7B     		ldrb	r3, [r7, #15]	@ zero_extendqisi2	@ D.7394, tmppriority
+ 147 0064 42FA03F3 		asr	r3, r2, r3	@ D.7394, D.7394, D.7394
+ 148 0068 7B73     		strb	r3, [r7, #13]	@ tmp155, tmpsub
+ 146:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c **** 
+ 147:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****     tmppriority = NVIC_InitStruct->NVIC_IRQChannelPreemptionPriority << tmppre;
+ 149              		.loc 1 147 0
+ 150 006a 7B68     		ldr	r3, [r7, #4]	@ tmp156, NVIC_InitStruct
+ 151 006c 5B78     		ldrb	r3, [r3, #1]	@ zero_extendqisi2	@ D.7395, NVIC_InitStruct_4(D)->NVIC_IRQChannelPreemptionPrio
+ 152 006e 1A46     		mov	r2, r3	@ D.7394, D.7395
+ 153 0070 BB7B     		ldrb	r3, [r7, #14]	@ zero_extendqisi2	@ D.7394, tmppre
+ 154 0072 02FA03F3 		lsl	r3, r2, r3	@ D.7394, D.7394, D.7394
+ 155 0076 FB73     		strb	r3, [r7, #15]	@ tmp157, tmppriority
+ 148:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****     tmppriority |=  (uint8_t)(NVIC_InitStruct->NVIC_IRQChannelSubPriority & tmpsub);
+ 156              		.loc 1 148 0
+ 157 0078 7B68     		ldr	r3, [r7, #4]	@ tmp158, NVIC_InitStruct
+ 158 007a 9A78     		ldrb	r2, [r3, #2]	@ zero_extendqisi2	@ D.7395, NVIC_InitStruct_4(D)->NVIC_IRQChannelSubPriority
+ 159 007c 7B7B     		ldrb	r3, [r7, #13]	@ tmp159, tmpsub
+ 160 007e 1340     		ands	r3, r3, r2	@, tmp160, tmp159, D.7395
+ 161 0080 DAB2     		uxtb	r2, r3	@ D.7395, tmp160
+ 162 0082 FB7B     		ldrb	r3, [r7, #15]	@ tmp161, tmppriority
+ 163 0084 1343     		orrs	r3, r3, r2	@, tmp162, tmp161, D.7395
+ 164 0086 FB73     		strb	r3, [r7, #15]	@ tmp163, tmppriority
+ 149:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****         
+ 150:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****     tmppriority = tmppriority << 0x04;
+ 165              		.loc 1 150 0
+ 166 0088 FB7B     		ldrb	r3, [r7, #15]	@ tmp164, tmppriority
+ 167 008a 1B01     		lsls	r3, r3, #4	@ tmp165, tmp164,
+ 168 008c FB73     		strb	r3, [r7, #15]	@ tmp166, tmppriority
+ 151:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****         
+ 152:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****     NVIC->IP[NVIC_InitStruct->NVIC_IRQChannel] = tmppriority;
+ 169              		.loc 1 152 0
+ 170 008e 4FF46143 		mov	r3, #57600	@ D.7396,
+ 171 0092 CEF20003 		movt	r3, 57344	@ D.7396,
+ 172 0096 7A68     		ldr	r2, [r7, #4]	@ tmp167, NVIC_InitStruct
+ 173 0098 1278     		ldrb	r2, [r2]	@ zero_extendqisi2	@ D.7395, NVIC_InitStruct_4(D)->NVIC_IRQChannel
+ 174 009a 1344     		add	r3, r3, r2	@ tmp168, D.7394
+ 175 009c FA7B     		ldrb	r2, [r7, #15]	@ tmp169, tmppriority
+ 176 009e 83F80023 		strb	r2, [r3, #768]	@ tmp169, _26->IP
+ 153:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****     
+ 154:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****     /* Enable the Selected IRQ Channels --------------------------------------*/
+ 155:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****     NVIC->ISER[NVIC_InitStruct->NVIC_IRQChannel >> 0x05] =
+ 177              		.loc 1 155 0
+ 178 00a2 4FF46143 		mov	r3, #57600	@ D.7396,
+ 179 00a6 CEF20003 		movt	r3, 57344	@ D.7396,
+ 180 00aa 7A68     		ldr	r2, [r7, #4]	@ tmp170, NVIC_InitStruct
+ 181 00ac 1278     		ldrb	r2, [r2]	@ zero_extendqisi2	@ D.7395, NVIC_InitStruct_4(D)->NVIC_IRQChannel
+ 182 00ae 5209     		lsrs	r2, r2, #5	@ tmp171, D.7395,
+ 183 00b0 D2B2     		uxtb	r2, r2	@ D.7395, tmp171
+ 156:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****       (uint32_t)0x01 << (NVIC_InitStruct->NVIC_IRQChannel & (uint8_t)0x1F);
+ 184              		.loc 1 156 0
+ 185 00b2 7968     		ldr	r1, [r7, #4]	@ tmp172, NVIC_InitStruct
+ 186 00b4 0978     		ldrb	r1, [r1]	@ zero_extendqisi2	@ D.7395, NVIC_InitStruct_4(D)->NVIC_IRQChannel
+ 187 00b6 01F01F01 		and	r1, r1, #31	@ D.7394, D.7394,
+ 188 00ba 0120     		movs	r0, #1	@ tmp173,
+ 189 00bc 00FA01F1 		lsl	r1, r0, r1	@ D.7393, tmp173, D.7394
+ 155:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****       (uint32_t)0x01 << (NVIC_InitStruct->NVIC_IRQChannel & (uint8_t)0x1F);
+ 190              		.loc 1 155 0
+ 191 00c0 43F82210 		str	r1, [r3, r2, lsl #2]	@ D.7393, _29->ISER
+ 192 00c4 11E0     		b	.L2	@
+ 193              	.L3:
+ 157:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   }
+ 158:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   else
+ 159:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   {
+ 160:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****     /* Disable the Selected IRQ Channels -------------------------------------*/
+ 161:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****     NVIC->ICER[NVIC_InitStruct->NVIC_IRQChannel >> 0x05] =
+ 194              		.loc 1 161 0
+ 195 00c6 4FF46143 		mov	r3, #57600	@ D.7396,
+ 196 00ca CEF20003 		movt	r3, 57344	@ D.7396,
+ 197 00ce 7A68     		ldr	r2, [r7, #4]	@ tmp174, NVIC_InitStruct
+ 198 00d0 1278     		ldrb	r2, [r2]	@ zero_extendqisi2	@ D.7395, NVIC_InitStruct_4(D)->NVIC_IRQChannel
+ 199 00d2 5209     		lsrs	r2, r2, #5	@ tmp175, D.7395,
+ 200 00d4 D2B2     		uxtb	r2, r2	@ D.7395, tmp175
+ 162:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****       (uint32_t)0x01 << (NVIC_InitStruct->NVIC_IRQChannel & (uint8_t)0x1F);
+ 201              		.loc 1 162 0
+ 202 00d6 7968     		ldr	r1, [r7, #4]	@ tmp176, NVIC_InitStruct
+ 203 00d8 0978     		ldrb	r1, [r1]	@ zero_extendqisi2	@ D.7395, NVIC_InitStruct_4(D)->NVIC_IRQChannel
+ 204 00da 01F01F01 		and	r1, r1, #31	@ D.7394, D.7394,
+ 205 00de 0120     		movs	r0, #1	@ tmp177,
+ 206 00e0 00FA01F1 		lsl	r1, r0, r1	@ D.7393, tmp177, D.7394
+ 161:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****       (uint32_t)0x01 << (NVIC_InitStruct->NVIC_IRQChannel & (uint8_t)0x1F);
+ 207              		.loc 1 161 0
+ 208 00e4 2032     		adds	r2, r2, #32	@ tmp178, D.7394,
+ 209 00e6 43F82210 		str	r1, [r3, r2, lsl #2]	@ D.7393, _37->ICER
+ 210              	.L2:
+ 163:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   }
+ 164:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c **** }
+ 211              		.loc 1 164 0
+ 212 00ea 1437     		adds	r7, r7, #20	@,,
+ 213 00ec BD46     		mov	sp, r7	@,
+ 214              		@ sp needed	@
+ 215 00ee 5DF8047B 		ldr	r7, [sp], #4	@,
+ 216 00f2 7047     		bx	lr	@
+ 217              		.cfi_endproc
+ 218              	.LFE111:
+ 220              		.align	2
+ 221              		.global	NVIC_SetVectorTable
+ 222              		.thumb
+ 223              		.thumb_func
+ 225              	NVIC_SetVectorTable:
+ 226              	.LFB112:
+ 165:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c **** 
+ 166:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c **** /**
+ 167:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   * @brief  Sets the vector table location and Offset.
+ 168:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   * @param  NVIC_VectTab: specifies if the vector table is in RAM or FLASH memory.
+ 169:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   *   This parameter can be one of the following values:
+ 170:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   *     @arg NVIC_VectTab_RAM: Vector Table in internal SRAM.
+ 171:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   *     @arg NVIC_VectTab_FLASH: Vector Table in internal FLASH.
+ 172:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   * @param  Offset: Vector Table base offset field. This value must be a multiple of 0x200.
+ 173:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   * @retval None
+ 174:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   */
+ 175:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c **** void NVIC_SetVectorTable(uint32_t NVIC_VectTab, uint32_t Offset)
+ 176:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c **** { 
+ 227              		.loc 1 176 0
+ 228              		.cfi_startproc
+ 229              		@ args = 0, pretend = 0, frame = 8
+ 230              		@ frame_needed = 1, uses_anonymous_args = 0
+ 231              		@ link register save eliminated.
+ 232 00f4 80B4     		push	{r7}	@
+ 233              		.cfi_def_cfa_offset 4
+ 234              		.cfi_offset 7, -4
+ 235 00f6 83B0     		sub	sp, sp, #12	@,,
+ 236              		.cfi_def_cfa_offset 16
+ 237 00f8 00AF     		add	r7, sp, #0	@,,
+ 238              		.cfi_def_cfa_register 7
+ 239 00fa 7860     		str	r0, [r7, #4]	@ NVIC_VectTab, NVIC_VectTab
+ 240 00fc 3960     		str	r1, [r7]	@ Offset, Offset
+ 177:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   /* Check the parameters */
+ 178:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   assert_param(IS_NVIC_VECTTAB(NVIC_VectTab));
+ 179:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   assert_param(IS_NVIC_OFFSET(Offset));  
+ 180:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****    
+ 181:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   SCB->VTOR = NVIC_VectTab | (Offset & (uint32_t)0x1FFFFF80);
+ 241              		.loc 1 181 0
+ 242 00fe 4FF46D43 		mov	r3, #60672	@ D.7397,
+ 243 0102 CEF20003 		movt	r3, 57344	@ D.7397,
+ 244 0106 3A68     		ldr	r2, [r7]	@ tmp113, Offset
+ 245 0108 22F06042 		bic	r2, r2, #-536870912	@ D.7398, tmp113,
+ 246 010c 22F07F02 		bic	r2, r2, #127	@ D.7398, D.7398,
+ 247 0110 7968     		ldr	r1, [r7, #4]	@ tmp114, NVIC_VectTab
+ 248 0112 0A43     		orrs	r2, r2, r1	@, D.7398, D.7398, tmp114
+ 249 0114 9A60     		str	r2, [r3, #8]	@ D.7398, _1->VTOR
+ 182:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c **** }
+ 250              		.loc 1 182 0
+ 251 0116 0C37     		adds	r7, r7, #12	@,,
+ 252 0118 BD46     		mov	sp, r7	@,
+ 253              		@ sp needed	@
+ 254 011a 5DF8047B 		ldr	r7, [sp], #4	@,
+ 255 011e 7047     		bx	lr	@
+ 256              		.cfi_endproc
+ 257              	.LFE112:
+ 259              		.align	2
+ 260              		.global	NVIC_SystemLPConfig
+ 261              		.thumb
+ 262              		.thumb_func
+ 264              	NVIC_SystemLPConfig:
+ 265              	.LFB113:
+ 183:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c **** 
+ 184:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c **** /**
+ 185:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   * @brief  Selects the condition for the system to enter low power mode.
+ 186:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   * @param  LowPowerMode: Specifies the new mode for the system to enter low power mode.
+ 187:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   *   This parameter can be one of the following values:
+ 188:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   *     @arg NVIC_LP_SEVONPEND: Low Power SEV on Pend.
+ 189:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   *     @arg NVIC_LP_SLEEPDEEP: Low Power DEEPSLEEP request.
+ 190:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   *     @arg NVIC_LP_SLEEPONEXIT: Low Power Sleep on Exit.
+ 191:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   * @param  NewState: new state of LP condition. This parameter can be: ENABLE or DISABLE.
+ 192:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   * @retval None
+ 193:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   */
+ 194:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c **** void NVIC_SystemLPConfig(uint8_t LowPowerMode, FunctionalState NewState)
+ 195:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c **** {
+ 266              		.loc 1 195 0
+ 267              		.cfi_startproc
+ 268              		@ args = 0, pretend = 0, frame = 8
+ 269              		@ frame_needed = 1, uses_anonymous_args = 0
+ 270              		@ link register save eliminated.
+ 271 0120 80B4     		push	{r7}	@
+ 272              		.cfi_def_cfa_offset 4
+ 273              		.cfi_offset 7, -4
+ 274 0122 83B0     		sub	sp, sp, #12	@,,
+ 275              		.cfi_def_cfa_offset 16
+ 276 0124 00AF     		add	r7, sp, #0	@,,
+ 277              		.cfi_def_cfa_register 7
+ 278 0126 0246     		mov	r2, r0	@ tmp121, LowPowerMode
+ 279 0128 0B46     		mov	r3, r1	@ tmp123, NewState
+ 280 012a FA71     		strb	r2, [r7, #7]	@ tmp122, LowPowerMode
+ 281 012c BB71     		strb	r3, [r7, #6]	@ tmp124, NewState
+ 196:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   /* Check the parameters */
+ 197:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   assert_param(IS_NVIC_LP(LowPowerMode));
+ 198:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   assert_param(IS_FUNCTIONAL_STATE(NewState));  
+ 199:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   
+ 200:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   if (NewState != DISABLE)
+ 282              		.loc 1 200 0
+ 283 012e BB79     		ldrb	r3, [r7, #6]	@ zero_extendqisi2	@ tmp125, NewState
+ 284 0130 002B     		cmp	r3, #0	@ tmp125,
+ 285 0132 0CD0     		beq	.L7	@,
+ 201:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   {
+ 202:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****     SCB->SCR |= LowPowerMode;
+ 286              		.loc 1 202 0
+ 287 0134 4FF46D43 		mov	r3, #60672	@ D.7399,
+ 288 0138 CEF20003 		movt	r3, 57344	@ D.7399,
+ 289 013c 4FF46D42 		mov	r2, #60672	@ D.7399,
+ 290 0140 CEF20002 		movt	r2, 57344	@ D.7399,
+ 291 0144 1169     		ldr	r1, [r2, #16]	@ D.7400, _3->SCR
+ 292 0146 FA79     		ldrb	r2, [r7, #7]	@ zero_extendqisi2	@ D.7400, LowPowerMode
+ 293 0148 0A43     		orrs	r2, r2, r1	@, D.7400, D.7400, D.7400
+ 294 014a 1A61     		str	r2, [r3, #16]	@ D.7400, _2->SCR
+ 295 014c 0CE0     		b	.L6	@
+ 296              	.L7:
+ 203:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   }
+ 204:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   else
+ 205:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   {
+ 206:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****     SCB->SCR &= (uint32_t)(~(uint32_t)LowPowerMode);
+ 297              		.loc 1 206 0
+ 298 014e 4FF46D43 		mov	r3, #60672	@ D.7399,
+ 299 0152 CEF20003 		movt	r3, 57344	@ D.7399,
+ 300 0156 4FF46D42 		mov	r2, #60672	@ D.7399,
+ 301 015a CEF20002 		movt	r2, 57344	@ D.7399,
+ 302 015e 1169     		ldr	r1, [r2, #16]	@ D.7400, _9->SCR
+ 303 0160 FA79     		ldrb	r2, [r7, #7]	@ zero_extendqisi2	@ D.7400, LowPowerMode
+ 304 0162 D243     		mvns	r2, r2	@ D.7400, D.7400
+ 305 0164 0A40     		ands	r2, r2, r1	@, D.7400, D.7400, D.7400
+ 306 0166 1A61     		str	r2, [r3, #16]	@ D.7400, _8->SCR
+ 307              	.L6:
+ 207:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   }
+ 208:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c **** }
+ 308              		.loc 1 208 0
+ 309 0168 0C37     		adds	r7, r7, #12	@,,
+ 310 016a BD46     		mov	sp, r7	@,
+ 311              		@ sp needed	@
+ 312 016c 5DF8047B 		ldr	r7, [sp], #4	@,
+ 313 0170 7047     		bx	lr	@
+ 314              		.cfi_endproc
+ 315              	.LFE113:
+ 317 0172 00BF     		.align	2
+ 318              		.global	SysTick_CLKSourceConfig
+ 319              		.thumb
+ 320              		.thumb_func
+ 322              	SysTick_CLKSourceConfig:
+ 323              	.LFB114:
+ 209:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c **** 
+ 210:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c **** /**
+ 211:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   * @brief  Configures the SysTick clock source.
+ 212:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   * @param  SysTick_CLKSource: specifies the SysTick clock source.
+ 213:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   *   This parameter can be one of the following values:
+ 214:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   *     @arg SysTick_CLKSource_HCLK_Div8: AHB clock divided by 8 selected as SysTick clock source.
+ 215:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   *     @arg SysTick_CLKSource_HCLK: AHB clock selected as SysTick clock source.
+ 216:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   * @retval None
+ 217:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   */
+ 218:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c **** void SysTick_CLKSourceConfig(uint32_t SysTick_CLKSource)
+ 219:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c **** {
+ 324              		.loc 1 219 0
+ 325              		.cfi_startproc
+ 326              		@ args = 0, pretend = 0, frame = 8
+ 327              		@ frame_needed = 1, uses_anonymous_args = 0
+ 328              		@ link register save eliminated.
+ 329 0174 80B4     		push	{r7}	@
+ 330              		.cfi_def_cfa_offset 4
+ 331              		.cfi_offset 7, -4
+ 332 0176 83B0     		sub	sp, sp, #12	@,,
+ 333              		.cfi_def_cfa_offset 16
+ 334 0178 00AF     		add	r7, sp, #0	@,,
+ 335              		.cfi_def_cfa_register 7
+ 336 017a 7860     		str	r0, [r7, #4]	@ SysTick_CLKSource, SysTick_CLKSource
+ 220:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   /* Check the parameters */
+ 221:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   assert_param(IS_SYSTICK_CLK_SOURCE(SysTick_CLKSource));
+ 222:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   if (SysTick_CLKSource == SysTick_CLKSource_HCLK)
+ 337              		.loc 1 222 0
+ 338 017c 7B68     		ldr	r3, [r7, #4]	@ tmp118, SysTick_CLKSource
+ 339 017e 042B     		cmp	r3, #4	@ tmp118,
+ 340 0180 0CD1     		bne	.L10	@,
+ 223:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   {
+ 224:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****     SysTick->CTRL |= SysTick_CLKSource_HCLK;
+ 341              		.loc 1 224 0
+ 342 0182 4EF21003 		movw	r3, #57360	@ D.7401,
+ 343 0186 CEF20003 		movt	r3, 57344	@ D.7401,
+ 344 018a 4EF21002 		movw	r2, #57360	@ D.7401,
+ 345 018e CEF20002 		movt	r2, 57344	@ D.7401,
+ 346 0192 1268     		ldr	r2, [r2]	@ D.7402, _3->CTRL
+ 347 0194 42F00402 		orr	r2, r2, #4	@ D.7402, D.7402,
+ 348 0198 1A60     		str	r2, [r3]	@ D.7402, _2->CTRL
+ 349 019a 0BE0     		b	.L9	@
+ 350              	.L10:
+ 225:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   }
+ 226:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   else
+ 227:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   {
+ 228:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****     SysTick->CTRL &= SysTick_CLKSource_HCLK_Div8;
+ 351              		.loc 1 228 0
+ 352 019c 4EF21003 		movw	r3, #57360	@ D.7401,
+ 353 01a0 CEF20003 		movt	r3, 57344	@ D.7401,
+ 354 01a4 4EF21002 		movw	r2, #57360	@ D.7401,
+ 355 01a8 CEF20002 		movt	r2, 57344	@ D.7401,
+ 356 01ac 1268     		ldr	r2, [r2]	@ D.7402, _7->CTRL
+ 357 01ae 22F00402 		bic	r2, r2, #4	@ D.7402, D.7402,
+ 358 01b2 1A60     		str	r2, [r3]	@ D.7402, _6->CTRL
+ 359              	.L9:
+ 229:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c ****   }
+ 230:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.c **** }
+ 360              		.loc 1 230 0
+ 361 01b4 0C37     		adds	r7, r7, #12	@,,
+ 362 01b6 BD46     		mov	sp, r7	@,
+ 363              		@ sp needed	@
+ 364 01b8 5DF8047B 		ldr	r7, [sp], #4	@,
+ 365 01bc 7047     		bx	lr	@
+ 366              		.cfi_endproc
+ 367              	.LFE114:
+ 369              	.Letext0:
+ 370              		.file 2 "/opt/toolchains/eabi/arm-2014.05/arm-none-eabi/include/stdint.h"
+ 371              		.file 3 "/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/core/core_cm4
+ 372              		.file 4 "/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/stm32f4xx.h"
+ 373              		.file 5 "/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device/misc.h
+DEFINED SYMBOLS
+                            *ABS*:00000000 misc.c
+     /tmp/ccsV9d6p.s:63     .text:00000000 $t
+     /tmp/ccsV9d6p.s:68     .text:00000000 NVIC_PriorityGroupConfig
+     /tmp/ccsV9d6p.s:105    .text:00000028 NVIC_Init
+     /tmp/ccsV9d6p.s:225    .text:000000f4 NVIC_SetVectorTable
+     /tmp/ccsV9d6p.s:264    .text:00000120 NVIC_SystemLPConfig
+     /tmp/ccsV9d6p.s:322    .text:00000174 SysTick_CLKSourceConfig
+                     .debug_frame:00000010 $d
+
+NO UNDEFINED SYMBOLS
