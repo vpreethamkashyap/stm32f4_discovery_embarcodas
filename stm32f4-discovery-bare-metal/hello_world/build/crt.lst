@@ -1,0 +1,237 @@
+   1              		.syntax unified
+   2              		.cpu cortex-m4
+   3              		.eabi_attribute 27, 3	@ Tag_ABI_HardFP_use
+   4              		.eabi_attribute 28, 1	@ Tag_ABI_VFP_args
+   5              		.fpu vfp
+   6              		.eabi_attribute 20, 1	@ Tag_ABI_FP_denormal
+   7              		.eabi_attribute 21, 1	@ Tag_ABI_FP_exceptions
+   8              		.eabi_attribute 23, 3	@ Tag_ABI_FP_number_model
+   9              		.eabi_attribute 24, 1	@ Tag_ABI_align8_needed
+  10              		.eabi_attribute 25, 1	@ Tag_ABI_align8_preserved
+  11              		.eabi_attribute 26, 1	@ Tag_ABI_enum_size
+  12              		.eabi_attribute 30, 6	@ Tag_ABI_optimization_goals
+  13              		.eabi_attribute 34, 1	@ Tag_CPU_unaligned_access
+  14              		.eabi_attribute 18, 4	@ Tag_ABI_PCS_wchar_t
+  15              		.file	"crt.c"
+  16              	@ GNU C (Sourcery CodeBench Lite 2014.05-28) version 4.8.3 20140320 (prerelease) (arm-none-eabi)
+  17              	@	compiled by GNU C version 4.7.2, GMP version 5.0.5, MPFR version 3.1.1-p2, MPC version 1.0.1
+  18              	@ GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+  19              	@ options passed: 
+  20              	@ -I /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world
+  21              	@ -I /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src
+  22              	@ -I /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/project
+  23              	@ -I /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/core
+  24              	@ -I /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/cmsis/device
+  25              	@ -imultilib thumb2
+  26              	@ -iprefix /opt/toolchains/eabi/arm-2014.05/bin/../lib/gcc/arm-none-eabi/4.8.3/
+  27              	@ -isysroot /opt/toolchains/eabi/arm-2014.05/bin/../arm-none-eabi
+  28              	@ -MMD /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/crt.d
+  29              	@ -MF /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/.dep/crt.o.d
+  30              	@ -MP
+  31              	@ -MQ /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/crt.o
+  32              	@ -D__USES_INITFINI__ -D USE_STDPERIPH_DRIVER -D STM32F4XX
+  33              	@ -D __CS_SOURCERYGXX_MAJ__=2014 -D __CS_SOURCERYGXX_MIN__=5
+  34              	@ -D __CS_SOURCERYGXX_REV__=28
+  35              	@ /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/crt.c
+  36              	@ -mcpu=cortex-m4 -mtune=cortex-m4 -mfloat-abi=hard -mthumb -mapcs-frame
+  37              	@ -auxbase-strip /home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/build/crt.o
+  38              	@ -g -O0 -Wall -Wstrict-prototypes -fverbose-asm
+  39              	@ options enabled:  -faggressive-loop-optimizations -fauto-inc-dec
+  40              	@ -fbranch-count-reg -fcommon -fdelete-null-pointer-checks -fdwarf2-cfi-asm
+  41              	@ -fearly-inlining -feliminate-unused-debug-types -ffunction-cse -fgcse-lm
+  42              	@ -fgnu-runtime -fident -finline-atomics -fira-hoist-pressure
+  43              	@ -fira-share-save-slots -fira-share-spill-slots -fivopts
+  44              	@ -fkeep-static-consts -fleading-underscore -fmath-errno
+  45              	@ -fmerge-debug-strings -fmove-loop-invariants -fpeephole
+  46              	@ -fprefetch-loop-arrays -freg-struct-return
+  47              	@ -fsched-critical-path-heuristic -fsched-dep-count-heuristic
+  48              	@ -fsched-group-heuristic -fsched-interblock -fsched-last-insn-heuristic
+  49              	@ -fsched-rank-heuristic -fsched-spec -fsched-spec-insn-heuristic
+  50              	@ -fsched-stalled-insns-dep -fshow-column -fsigned-zeros
+  51              	@ -fsplit-ivs-in-unroller -fstrict-volatile-bitfields -fsync-libcalls
+  52              	@ -ftrapping-math -ftree-coalesce-vars -ftree-cselim -ftree-forwprop
+  53              	@ -ftree-loop-if-convert -ftree-loop-im -ftree-loop-ivcanon
+  54              	@ -ftree-loop-optimize -ftree-parallelize-loops= -ftree-phiprop -ftree-pta
+  55              	@ -ftree-reassoc -ftree-scev-cprop -ftree-slp-vectorize
+  56              	@ -ftree-vect-loop-version -funit-at-a-time -fverbose-asm
+  57              	@ -fzero-initialized-in-bss -mlittle-endian -msched-prolog -mthumb
+  58              	@ -munaligned-access -mvectorize-with-neon-quad
+  59              	
+  60              		.text
+  61              	.Ltext0:
+  62              		.cfi_sections	.debug_frame
+  63              		.align	2
+  64              		.global	Reset_Handler
+  65              		.thumb
+  66              		.thumb_func
+  68              	Reset_Handler:
+  69              	.LFB0:
+  70              		.file 1 "/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/crt.c"
+   1:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/crt.c **** /*=================================================================================================
+   2:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/crt.c **** 
+   3:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/crt.c ****   crt.c
+   4:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/crt.c **** 
+   5:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/crt.c ****   C Runtime initialization module
+   6:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/crt.c **** 
+   7:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/crt.c ****   =================================================================================================
+   8:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/crt.c **** 
+   9:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/crt.c ****   Author: Henrique Persico Rossi
+  10:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/crt.c ****   e-mail: henriqueprossi@gmail.com
+  11:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/crt.c **** 
+  12:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/crt.c ****   =================================================================================================
+  13:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/crt.c **** 
+  14:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/crt.c **** /*=================================================================================================
+  15:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/crt.c ****   INCLUDE FILES
+  16:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/crt.c **** ==================================================================================================*
+  17:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/crt.c **** 
+  18:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/crt.c **** #include <stdint.h>
+  19:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/crt.c **** #include "project.h"
+  20:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/crt.c **** #include "crt.h"
+  21:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/crt.c **** #include "system_stm32f4xx.h"
+  22:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/crt.c **** #include "stm32f4_linker.h" /* Sections and symbols which are defined by the linker script */
+  23:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/crt.c **** #include "hello_world.h"    /* This is where the main function is declared */
+  24:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/crt.c **** #include <unistd.h>
+  25:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/crt.c **** 
+  26:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/crt.c **** /*=================================================================================================
+  27:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/crt.c ****   Function    : Reset_Handler
+  28:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/crt.c **** 
+  29:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/crt.c ****   Description : This function is used for C runtime initialization, which is the code that gets
+  30:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/crt.c ****                 called when the processor first starts execution following a reset event. Only
+  31:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/crt.c ****                 the absolutely necessary set is performed, which includes handling the .data and
+  32:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/crt.c ****                 .bss segments, after which the application supplied main() routine is called.
+  33:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/crt.c **** 
+  34:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/crt.c ****   Parameters  : None
+  35:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/crt.c **** 
+  36:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/crt.c ****   Returns     : None
+  37:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/crt.c **** ==================================================================================================*
+  38:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/crt.c **** 
+  39:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/crt.c **** void Reset_Handler(void)
+  40:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/crt.c **** {
+  71              		.loc 1 40 0
+  72              		.cfi_startproc
+  73              		@ Stack Align: May be called with mis-aligned SP.
+  74              		@ args = 0, pretend = 0, frame = 16
+  75              		@ frame_needed = 1, uses_anonymous_args = 0
+  76 0000 6846     		mov	r0, sp	@,
+  77              		.cfi_register 13, 0
+  78 0002 20F00701 		bic	r1, r0, #7	@,,
+  79 0006 8D46     		mov	sp, r1	@,
+  80 0008 81B5     		push	{r0, r7, lr}	@
+  81              		.cfi_def_cfa_offset 12
+  82              		.cfi_offset 13, -12
+  83              		.cfi_offset 7, -8
+  84              		.cfi_offset 14, -4
+  85 000a 85B0     		sub	sp, sp, #20	@,,
+  86              		.cfi_def_cfa_offset 32
+  87 000c 00AF     		add	r7, sp, #0	@,,
+  88              		.cfi_def_cfa_register 7
+  41:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/crt.c ****   uint32_t  * source;
+  42:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/crt.c ****   uint32_t  * dest;
+  43:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/crt.c ****   int         ret_main;
+  44:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/crt.c **** 
+  45:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/crt.c ****   /* Copy the initialized data of the ".data" segment from the FLASH to the area in the RAM. */
+  46:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/crt.c ****   source  = &_sidata;
+  89              		.loc 1 46 0
+  90 000e 40F20003 		movw	r3, #:lower16:_sidata	@ tmp112,
+  91 0012 C0F20003 		movt	r3, #:upper16:_sidata	@ tmp112,
+  92 0016 FB60     		str	r3, [r7, #12]	@ tmp112, source
+  47:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/crt.c ****   dest    = &_sdata;
+  93              		.loc 1 47 0
+  94 0018 40F20003 		movw	r3, #:lower16:_sdata	@ tmp113,
+  95 001c C0F20003 		movt	r3, #:upper16:_sdata	@ tmp113,
+  96 0020 BB60     		str	r3, [r7, #8]	@ tmp113, dest
+  48:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/crt.c **** 
+  49:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/crt.c ****   while (dest < &_edata) {
+  97              		.loc 1 49 0
+  98 0022 09E0     		b	.L2	@
+  99              	.L3:
+  50:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/crt.c ****     *dest = *source;
+ 100              		.loc 1 50 0
+ 101 0024 FB68     		ldr	r3, [r7, #12]	@ tmp114, source
+ 102 0026 1A68     		ldr	r2, [r3]	@ D.4380, *source_1
+ 103 0028 BB68     		ldr	r3, [r7, #8]	@ tmp115, dest
+ 104 002a 1A60     		str	r2, [r3]	@ D.4380, *dest_2
+  51:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/crt.c ****     dest++;
+ 105              		.loc 1 51 0
+ 106 002c BB68     		ldr	r3, [r7, #8]	@ tmp117, dest
+ 107 002e 0433     		adds	r3, r3, #4	@ tmp116, tmp117,
+ 108 0030 BB60     		str	r3, [r7, #8]	@ tmp116, dest
+  52:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/crt.c ****     source++;
+ 109              		.loc 1 52 0
+ 110 0032 FB68     		ldr	r3, [r7, #12]	@ tmp119, source
+ 111 0034 0433     		adds	r3, r3, #4	@ tmp118, tmp119,
+ 112 0036 FB60     		str	r3, [r7, #12]	@ tmp118, source
+ 113              	.L2:
+  49:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/crt.c ****     *dest = *source;
+ 114              		.loc 1 49 0 discriminator 1
+ 115 0038 BA68     		ldr	r2, [r7, #8]	@ tmp120, dest
+ 116 003a 40F20003 		movw	r3, #:lower16:_edata	@ tmp121,
+ 117 003e C0F20003 		movt	r3, #:upper16:_edata	@ tmp121,
+ 118 0042 9A42     		cmp	r2, r3	@ tmp120, tmp121
+ 119 0044 EED3     		bcc	.L3	@,
+  53:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/crt.c ****   }
+  54:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/crt.c **** 
+  55:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/crt.c ****   /* Clear the ".bss" segment */
+  56:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/crt.c ****   dest = &_sbss;
+ 120              		.loc 1 56 0
+ 121 0046 40F20003 		movw	r3, #:lower16:_sbss	@ tmp122,
+ 122 004a C0F20003 		movt	r3, #:upper16:_sbss	@ tmp122,
+ 123 004e BB60     		str	r3, [r7, #8]	@ tmp122, dest
+  57:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/crt.c **** 
+  58:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/crt.c ****   while (dest < &_ebss) {
+ 124              		.loc 1 58 0
+ 125 0050 04E0     		b	.L4	@
+ 126              	.L5:
+  59:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/crt.c ****     *dest++ = 0;
+ 127              		.loc 1 59 0
+ 128 0052 BB68     		ldr	r3, [r7, #8]	@ dest.0, dest
+ 129 0054 1A1D     		adds	r2, r3, #4	@ tmp123, dest.0,
+ 130 0056 BA60     		str	r2, [r7, #8]	@ tmp123, dest
+ 131 0058 0022     		movs	r2, #0	@ tmp124,
+ 132 005a 1A60     		str	r2, [r3]	@ tmp124, *dest.0_10
+ 133              	.L4:
+  58:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/crt.c ****     *dest++ = 0;
+ 134              		.loc 1 58 0 discriminator 1
+ 135 005c BA68     		ldr	r2, [r7, #8]	@ tmp125, dest
+ 136 005e 40F20003 		movw	r3, #:lower16:_ebss	@ tmp126,
+ 137 0062 C0F20003 		movt	r3, #:upper16:_ebss	@ tmp126,
+ 138 0066 9A42     		cmp	r2, r3	@ tmp125, tmp126
+ 139 0068 F3D3     		bcc	.L5	@,
+  60:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/crt.c ****   }
+  61:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/crt.c **** 
+  62:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/crt.c ****   /* Call the SystemInit code from CMSIS interface */
+  63:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/crt.c ****   SystemInit();
+ 140              		.loc 1 63 0
+ 141 006a FFF7FEFF 		bl	SystemInit	@
+  64:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/crt.c **** 
+  65:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/crt.c ****   /* The runtime environment is set. So, the main function is called */
+  66:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/crt.c ****   ret_main = main();
+ 142              		.loc 1 66 0
+ 143 006e FFF7FEFF 		bl	main	@
+ 144 0072 7860     		str	r0, [r7, #4]	@, ret_main
+ 145              	.L6:
+  67:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/crt.c ****   (void) ret_main;
+  68:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/crt.c **** 
+  69:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/crt.c ****   /* If it is necessary handling any error status from main function, it may be done here. */
+  70:/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/src/crt.c ****   for (;;) ;
+ 146              		.loc 1 70 0 discriminator 1
+ 147 0074 FEE7     		b	.L6	@
+ 148              		.cfi_endproc
+ 149              	.LFE0:
+ 151              	.Letext0:
+ 152              		.file 2 "/home/preetham/work/projects/stm32f4-discovery-bare-metal/hello_world/project/stm32f4_lin
+ 153              		.file 3 "/opt/toolchains/eabi/arm-2014.05/arm-none-eabi/include/stdint.h"
+DEFINED SYMBOLS
+                            *ABS*:00000000 crt.c
+     /tmp/ccbC0LAb.s:63     .text:00000000 $t
+     /tmp/ccbC0LAb.s:68     .text:00000000 Reset_Handler
+                     .debug_frame:00000010 $d
+
+UNDEFINED SYMBOLS
+_sidata
+_sdata
+_edata
+_sbss
+_ebss
+SystemInit
+main
